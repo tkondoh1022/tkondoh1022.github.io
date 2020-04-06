@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>First</title>
-      <link>https://tkondoh1022.github.io/post/first/</link>
+      <title>Setup blog</title>
+      <link>https://tkondoh1022.github.io/post/setup-blog/</link>
       <pubDate>Sun, 05 Apr 2020 23:46:55 +0900</pubDate>
       
-      <guid>https://tkondoh1022.github.io/post/first/</guid>
+      <guid>https://tkondoh1022.github.io/post/setup-blog/</guid>
       <description>I made my blog site with Hugo and easy-hugo.
-1. Make repos. on github as follow  blog tkondoh1022.github.io  2. Make work-dir. 1$ cd ~/work-github 2$ hugo new site blog 3$ cd blog 4$ cd theme 5$ git clone https://github.com/mattbutton/silhouette-hugo.git 6$ rm -rf silhouette-hugo/.git 7 8$ cd ../ 9$ edit config.toml 10 11$ hugo new post/first.md 12$ edit content/post/first.md 13$ hugo server --buildDrafts --watch 3. Push repos. 1$ git init 2$ git remote add origin git@github.</description>
+ https://www.ted027.com/post/hugo/  SPEC.  url: https://tkondoh1022.github.io os: ubuntu18.04 spacemace and easy-hugo  SETUP Install latest Hugo 1$ sudo snap install hugo --channel=extended 2$ sudo ln -s /sbin/hugo /usr/bin/hugo Setup GitHub Make two repos  blog tkondoh1022.github.io  Set new site and first post 1$ cd ~/work-github 2$ hugo new site blog 3$ cd blog 4$ cd theme 5$ git clone https://github.</description>
     </item>
     
   </channel>
