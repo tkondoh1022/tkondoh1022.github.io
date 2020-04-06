@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Wordpress Setup</title>
+      <link>https://tkondoh1022.github.io/post/wordpress-setup/</link>
+      <pubDate>Mon, 06 Apr 2020 22:34:30 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/post/wordpress-setup/</guid>
+      <description>Wordpress Setup using docker </description>
+    </item>
+    
+    <item>
       <title>About Me</title>
       <link>https://tkondoh1022.github.io/about/</link>
       <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>

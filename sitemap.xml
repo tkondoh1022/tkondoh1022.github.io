@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tkondoh1022.github.io/categories/</loc>
+    <lastmod>2020-04-06T22:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tkondoh1022.github.io/post/</loc>
+    <lastmod>2020-04-06T22:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tkondoh1022.github.io/categories/software-development/</loc>
+    <lastmod>2020-04-06T22:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tkondoh1022.github.io/tags/</loc>
+    <lastmod>2020-04-06T22:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tkondoh1022.github.io/tags/wordpress/</loc>
+    <lastmod>2020-04-06T22:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tkondoh1022.github.io/post/wordpress-setup/</loc>
+    <lastmod>2020-04-06T22:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tkondoh1022.github.io/about/</loc>
     <lastmod>2020-04-06T00:00:00+00:00</lastmod>
   </url>
@@ -13,32 +43,12 @@
   </url>
   
   <url>
-    <loc>https://tkondoh1022.github.io/categories/</loc>
-    <lastmod>2020-04-05T23:46:55+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tkondoh1022.github.io/tags/hugo/</loc>
     <lastmod>2020-04-05T23:46:55+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tkondoh1022.github.io/post/</loc>
-    <lastmod>2020-04-05T23:46:55+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tkondoh1022.github.io/post/setup-blog/</loc>
-    <lastmod>2020-04-05T23:46:55+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tkondoh1022.github.io/categories/software-development/</loc>
-    <lastmod>2020-04-05T23:46:55+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tkondoh1022.github.io/tags/</loc>
     <lastmod>2020-04-05T23:46:55+09:00</lastmod>
   </url>
   
