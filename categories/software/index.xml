@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Software on tkondoh</title>
+    <title>/Software on tkondoh</title>
     <link>https://tkondoh1022.github.io/categories/software/</link>
-    <description>Recent content in Software on tkondoh</description>
+    <description>Recent content in /Software on tkondoh</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, Takeo Kondoh; all rights reserved.</copyright>
     <lastBuildDate>Sun, 05 Apr 2020 23:46:55 +0900</lastBuildDate>
     
 	<atom:link href="https://tkondoh1022.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Setup blog</title>
-      <link>https://tkondoh1022.github.io/post/setup-blog/</link>
-      <pubDate>Sun, 05 Apr 2020 23:46:55 +0900</pubDate>
-      
-      <guid>https://tkondoh1022.github.io/post/setup-blog/</guid>
-      <description>I made my blog site with Hugo and easy-hugo.
- https://www.ted027.com/post/hugo/  SPEC.  url: https://tkondoh1022.github.io os: ubuntu18.04 spacemace and easy-hugo  SETUP Install latest Hugo 1$ sudo snap install hugo --channel=extended 2$ sudo ln -s /sbin/hugo /usr/bin/hugo Setup GitHub Make two repos  blog tkondoh1022.github.io  Set new site and first post 1$ cd ~/work-github 2$ hugo new site blog 3$ cd blog 4$ cd theme 5$ git clone https://github.</description>
-    </item>
     
   </channel>
 </rss>
