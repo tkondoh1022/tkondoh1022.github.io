@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Cakephp Setup</title>
+      <link>https://tkondoh1022.github.io/post/cakephp-setup/</link>
+      <pubDate>Tue, 07 Apr 2020 17:55:26 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/post/cakephp-setup/</guid>
+      <description>docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.d 18 | | | `-- default.</description>
+    </item>
+    
+    <item>
       <title>Wordpress Setup</title>
       <link>https://tkondoh1022.github.io/post/wordpress-setup/</link>
       <pubDate>Mon, 06 Apr 2020 22:34:30 +0900</pubDate>

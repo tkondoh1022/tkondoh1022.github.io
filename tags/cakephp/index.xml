@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cakephp on tkondoh</title>
+    <link>https://tkondoh1022.github.io/tags/cakephp/</link>
+    <description>Recent content in cakephp on tkondoh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2019, Takeo Kondoh; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 07 Apr 2020 17:55:26 +0900</lastBuildDate>
+    
+	<atom:link href="https://tkondoh1022.github.io/tags/cakephp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cakephp Setup</title>
+      <link>https://tkondoh1022.github.io/post/cakephp-setup/</link>
+      <pubDate>Tue, 07 Apr 2020 17:55:26 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/post/cakephp-setup/</guid>
+      <description>docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.d 18 | | | `-- default.</description>
+    </item>
+    
+  </channel>
+</rss>
