@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <meta property="og:title" content="Cakephp Setup" />
-<meta property="og:description" content="docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.d 18 | | | `-- default." />
+<meta property="og:description" content="Docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  Setup 1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tkondoh1022.github.io/post/cakephp-setup/" />
 <meta property="article:published_time" content="2020-04-07T17:55:26+09:00" />
@@ -13,7 +13,7 @@
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cakephp Setup"/>
-<meta name="twitter:description" content="docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.d 18 | | | `-- default."/>
+<meta name="twitter:description" content="Docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  Setup 1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf."/>
 
         
         <title>
@@ -44,7 +44,7 @@
 <meta name="copyright" content="Copyright © 2019, Takeo Kondoh; all rights reserved." />
 
 
-<meta name="description" content="docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.d 18 | | | `-- default.">
+<meta name="description" content="Docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  Setup 1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.">
 
 
     
@@ -137,10 +137,11 @@
     </div>
 
     <div class="mt-4 mb-4 main-content">
-        <h1 id="docker">docker</h1>
+        <h1 id="docker">Docker</h1>
 <ul>
 <li>refs: <a href="https://qiita.com/km42428/items/df1d0a1eefddcf771dfa">https://qiita.com/km42428/items/df1d0a1eefddcf771dfa</a></li>
 </ul>
+<h2 id="setup">Setup</h2>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ cd ~/work-github/
 <span class="ln"> 2</span>$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3
 <span class="ln"> 3</span>$ cd cakephp3
@@ -189,6 +190,32 @@
 <span class="ln">46</span>cakephp3_mysql_1    docker-entrypoint.sh mysqld      Up         0.0.0.0:3307-&gt;3306/tcp, 33060/tcp
 <span class="ln">47</span>cakephp3_nginx_1    nginx -g daemon off;             Up         0.0.0.0:443-&gt;443/tcp, 0.0.0.0:80-&gt;80/tcp
 <span class="ln">48</span>cakephp3_phpfpm_1   docker-php-entrypoint php-fpm    Up         9000/tcp
+<span class="ln">49</span>
+<span class="ln">50</span>$ docker-compose exec phpfpm /bin/sh
+<span class="ln">51</span>/var/www/html # curl -s https://getcomposer.org/installer | php
+<span class="ln">52</span>All settings correct for using Composer
+<span class="ln">53</span>Downloading...
+<span class="ln">54</span>
+<span class="ln">55</span>Composer (version 1.10.1) successfully installed to: /var/www/html/composer.phar
+<span class="ln">56</span>Use it: php composer.phar
+</code></pre></div><h2 id="make-sample-project">Make sample project</h2>
+<p>It takes two or three minutes.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>/var/www/html # php composer.phar create-project --prefer-dist cakephp/app sampl
+<span class="ln"> 2</span> :
+<span class="ln"> 3</span>&gt; App\Console\Installer::postInstall
+<span class="ln"> 4</span>Created `config/app_local.php` file
+<span class="ln"> 5</span>Created `/var/www/html/sampl/logs` directory
+<span class="ln"> 6</span>Created `/var/www/html/sampl/tmp/cache/views` directory
+<span class="ln"> 7</span>Set Folder Permissions ? (Default to Y) [Y,n]?  &lt;-- Enter &#39;Y&#39;
+<span class="ln"> 8</span>Permissions set on /var/www/html/sampl/tmp/cache/views
+<span class="ln"> 9</span>Permissions set on /var/www/html/sampl/logs
+<span class="ln">10</span>Updated Security.salt value in config/app_local.php
+<span class="ln">11</span>/var/www/html # exit
+</code></pre></div><p>Exit the container. You can see sample project under data/htdocs/.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ ls -1 data/htdocs/
+<span class="ln">2</span>Dockerfile
+<span class="ln">3</span>composer.phar
+<span class="ln">4</span>sampl
 </code></pre></div>
 
         <div class="share-icons d-flex justify-content-center d-print-none">
