@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <meta property="og:title" content="Cakephp Setup" />
-<meta property="og:description" content="Docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  Setup 1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf." />
+<meta property="og:description" content="refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  Setup 1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.d 18 | | | `-- default." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tkondoh1022.github.io/post/cakephp-setup/" />
 <meta property="article:published_time" content="2020-04-07T17:55:26+09:00" />
@@ -13,11 +13,11 @@
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cakephp Setup"/>
-<meta name="twitter:description" content="Docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  Setup 1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf."/>
+<meta name="twitter:description" content="refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  Setup 1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.d 18 | | | `-- default."/>
 
         
         <title>
-  Cakephp Setup | tkondoh
+Cakephp Setup | tkondoh
 </title>
 
         <link rel="icon" type="image/png" href='https://tkondoh1022.github.io/images/favicon-16x16.png' sizes="16x16">
@@ -44,7 +44,7 @@
 <meta name="copyright" content="Copyright © 2019, Takeo Kondoh; all rights reserved." />
 
 
-<meta name="description" content="Docker  refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  Setup 1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.">
+<meta name="description" content="refs: https://qiita.com/km42428/items/df1d0a1eefddcf771dfa  Setup 1$ cd ~/work-github/ 2$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3 3$ cd cakephp3 4$ tree . | less 5. 6`-- docker-cakephp3-template 7 |-- LICENSE 8 |-- README.md 9 |-- data 10 | |-- htdocs 11 | | `-- Dockerfile 12 | |-- mysql 13 | | |-- Dockerfile 14 | | `-- db 15 | |-- nginx 16 | | `-- conf 17 | | |-- conf.d 18 | | | `-- default.">
 
 
     
@@ -137,11 +137,22 @@
     </div>
 
     <div class="mt-4 mb-4 main-content">
-        <h1 id="docker">Docker</h1>
-<ul>
+
+        
+        <h3>[ contents ]</h3>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#make-sample-project">Make sample project</a></li>
+    <li><a href="#add-phpmyadmin">Add phpmyadmin</a></li>
+  </ol>
+</nav>
+        
+
+        <ul>
 <li>refs: <a href="https://qiita.com/km42428/items/df1d0a1eefddcf771dfa">https://qiita.com/km42428/items/df1d0a1eefddcf771dfa</a></li>
 </ul>
-<h2 id="setup">Setup</h2>
+<h1 id="setup">Setup</h1>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ cd ~/work-github/
 <span class="ln"> 2</span>$ git clone https://github.com/km42428/docker-cakephp3-template.git cakephp3
 <span class="ln"> 3</span>$ cd cakephp3
@@ -205,7 +216,7 @@
 <span class="ln">5</span>
 <span class="ln">6</span>Composer (version 1.10.1) successfully installed to: /var/www/html/composer.phar
 <span class="ln">7</span>Use it: php composer.phar
-</code></pre></div><h2 id="make-sample-project">Make sample project</h2>
+</code></pre></div><h1 id="make-sample-project">Make sample project</h1>
 <p>It takes two or three minutes.
 If cakephp version isn&rsquo;t specified, it will be installed latest version such as ver4.0.5</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>#/var/www/html # php composer.phar create-project --prefer-dist cakephp/app:3.8 sample &lt;-- specified version
@@ -250,7 +261,7 @@ If cakephp version isn&rsquo;t specified, it will be installed latest version su
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ docker-compose exec mysql mysql -ppasswd
 <span class="ln">2</span>$ docker-compose up -d
 <span class="ln">3</span>$ docker-compose ps
-</code></pre></div><h2 id="add-phpmyadmin">Add phpmyadmin</h2>
+</code></pre></div><h1 id="add-phpmyadmin">Add phpmyadmin</h1>
 <p>Add following lines in docker-compose.yml.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>  phpmyadmin:
 <span class="ln"> 2</span>    image: phpmyadmin/phpmyadmin:latest
