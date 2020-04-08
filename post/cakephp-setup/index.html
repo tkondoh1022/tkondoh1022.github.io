@@ -175,47 +175,109 @@
 <span class="ln">31</span>
 <span class="ln">32</span>9 directories, 16 files
 <span class="ln">33</span>
-<span class="ln">34</span>$ docker-compose build
-<span class="ln">35</span>$ docker images | grep cakephp
-<span class="ln">36</span>cakephp3_host                                       latest              0b396fc9bdbc        About a minute ago   495MB
-<span class="ln">37</span>cakephp3_phpfpm                                     latest              4ed88bf2e485        4 minutes ago        117MB
-<span class="ln">38</span>cakephp3_mysql                                      latest              8469d993162c        6 minutes ago        456MB
-<span class="ln">39</span>
-<span class="ln">40</span>$ docker-compose up -d
-<span class="ln">41</span>$ docker-compose ps
-<span class="ln">42</span>docker-compose ps
-<span class="ln">43</span>      Name                     Command                State                      Ports
-<span class="ln">44</span>--------------------------------------------------------------------------------------------------------
-<span class="ln">45</span>cakephp3_host_1     docker-php-entrypoint /bin ...   Exit 127   &lt;-- Not make container yet, so this result is OK!
-<span class="ln">46</span>cakephp3_mysql_1    docker-entrypoint.sh mysqld      Up         0.0.0.0:3307-&gt;3306/tcp, 33060/tcp
-<span class="ln">47</span>cakephp3_nginx_1    nginx -g daemon off;             Up         0.0.0.0:443-&gt;443/tcp, 0.0.0.0:80-&gt;80/tcp
-<span class="ln">48</span>cakephp3_phpfpm_1   docker-php-entrypoint php-fpm    Up         9000/tcp
-<span class="ln">49</span>
-<span class="ln">50</span>$ docker-compose exec phpfpm /bin/sh
-<span class="ln">51</span>/var/www/html # curl -s https://getcomposer.org/installer | php
-<span class="ln">52</span>All settings correct for using Composer
-<span class="ln">53</span>Downloading...
-<span class="ln">54</span>
-<span class="ln">55</span>Composer (version 1.10.1) successfully installed to: /var/www/html/composer.phar
-<span class="ln">56</span>Use it: php composer.phar
+<span class="ln">34</span>$ grep FROM ./data/htdocs/Dockerfile
+<span class="ln">35</span>FROM php:7.3-apache
+<span class="ln">36</span>$ grep FROM ./data/phpfpm/Dockerfile
+<span class="ln">37</span>FROM php:7.3-fpm-alpine
+<span class="ln">38</span>
+<span class="ln">39</span>$ docker-compose build
+<span class="ln">40</span>$ docker images | grep cakephp
+<span class="ln">41</span>cakephp3_host                                       latest              0b396fc9bdbc        About a minute ago   495MB
+<span class="ln">42</span>cakephp3_phpfpm                                     latest              4ed88bf2e485        4 minutes ago        117MB
+<span class="ln">43</span>cakephp3_mysql                                      latest              8469d993162c        6 minutes ago        456MB
+<span class="ln">44</span>
+<span class="ln">45</span>$ docker-compose up -d
+<span class="ln">46</span>$ docker-compose ps
+<span class="ln">47</span>docker-compose ps
+<span class="ln">48</span>      Name                     Command                State                      Ports
+<span class="ln">49</span>--------------------------------------------------------------------------------------------------------
+<span class="ln">50</span>cakephp3_host_1     docker-php-entrypoint /bin ...   Exit 127   &lt;-- Not make container yet, so this result is OK!
+<span class="ln">51</span>cakephp3_mysql_1    docker-entrypoint.sh mysqld      Up         0.0.0.0:3307-&gt;3306/tcp, 33060/tcp
+<span class="ln">52</span>cakephp3_nginx_1    nginx -g daemon off;             Up         0.0.0.0:443-&gt;443/tcp, 0.0.0.0:80-&gt;80/tcp
+<span class="ln">53</span>cakephp3_phpfpm_1   docker-php-entrypoint php-fpm    Up         9000/tcp
+</code></pre></div><p>If you already have sample project, delete it.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ sudo rm -rf ./data/htdocs/sample
+</code></pre></div><p>Create sample project.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ docker-compose exec phpfpm /bin/sh
+<span class="ln">2</span>/var/www/html # curl -s https://getcomposer.org/installer | php
+<span class="ln">3</span>All settings correct for using Composer
+<span class="ln">4</span>Downloading...
+<span class="ln">5</span>
+<span class="ln">6</span>Composer (version 1.10.1) successfully installed to: /var/www/html/composer.phar
+<span class="ln">7</span>Use it: php composer.phar
 </code></pre></div><h2 id="make-sample-project">Make sample project</h2>
-<p>It takes two or three minutes.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>/var/www/html # php composer.phar create-project --prefer-dist cakephp/app sampl
-<span class="ln"> 2</span> :
-<span class="ln"> 3</span>&gt; App\Console\Installer::postInstall
-<span class="ln"> 4</span>Created `config/app_local.php` file
-<span class="ln"> 5</span>Created `/var/www/html/sampl/logs` directory
-<span class="ln"> 6</span>Created `/var/www/html/sampl/tmp/cache/views` directory
-<span class="ln"> 7</span>Set Folder Permissions ? (Default to Y) [Y,n]?  &lt;-- Enter &#39;Y&#39;
-<span class="ln"> 8</span>Permissions set on /var/www/html/sampl/tmp/cache/views
-<span class="ln"> 9</span>Permissions set on /var/www/html/sampl/logs
-<span class="ln">10</span>Updated Security.salt value in config/app_local.php
-<span class="ln">11</span>/var/www/html # exit
-</code></pre></div><p>Exit the container. You can see sample project under data/htdocs/.</p>
+<p>It takes two or three minutes.
+If cakephp version isn&rsquo;t specified, it will be installed latest version such as ver4.0.5</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>#/var/www/html # php composer.phar create-project --prefer-dist cakephp/app:3.8 sample &lt;-- specified version
+<span class="ln"> 2</span>#/var/www/html # php composer.phar create-project --prefer-dist cakephp/app sample     &lt;-- latest version
+<span class="ln"> 3</span> :
+<span class="ln"> 4</span>&gt; App\Console\Installer::postInstall
+<span class="ln"> 5</span>Created `config/app_local.php` file
+<span class="ln"> 6</span>Created `/var/www/html/sample/logs` directory
+<span class="ln"> 7</span>Created `/var/www/html/sample/tmp/cache/views` directory
+<span class="ln"> 8</span>Set Folder Permissions ? (Default to Y) [Y,n]?  &lt;-- Enter &#39;Y&#39;
+<span class="ln"> 9</span>Permissions set on /var/www/html/sample/tmp/cache/views
+<span class="ln">10</span>Permissions set on /var/www/html/sample/logs
+<span class="ln">11</span>Updated Security.salt value in config/app_local.php
+<span class="ln">12</span>/var/www/html # exit
+</code></pre></div><p>Exit the container. You can see samplee project under data/htdocs/.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ ls -1 data/htdocs/
 <span class="ln">2</span>Dockerfile
 <span class="ln">3</span>composer.phar
-<span class="ln">4</span>sampl
+<span class="ln">4</span>sample
+</code></pre></div><p>Edit database config file.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ cat data/htdocs/sample/config/app.php
+<span class="ln">2</span> :
+<span class="ln">3</span>    &#39;Datasources&#39; =&gt; [
+<span class="ln">4</span>        &#39;default&#39; =&gt; [
+<span class="ln">5</span>            &#39;className&#39; =&gt; Connection::class,
+<span class="ln">6</span>            &#39;driver&#39; =&gt; Mysql::class,
+<span class="ln">7</span>            &#39;persistent&#39; =&gt; false,
+<span class="ln">8</span>            &#39;host&#39; =&gt; &#39;mysql&#39;, &lt;-- mysql
+<span class="ln">9</span>            /*
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ docker-compose down
+<span class="ln"> 2</span>$ docker-compose up -d
+<span class="ln"> 3</span>$ docker-compose ps
+<span class="ln"> 4</span>      Name                     Command               State                    Ports
+<span class="ln"> 5</span>-----------------------------------------------------------------------------------------------------
+<span class="ln"> 6</span>cakephp3_host_1     docker-php-entrypoint /bin ...   Up      0.0.0.0:8765-&gt;80/tcp
+<span class="ln"> 7</span>cakephp3_mysql_1    docker-entrypoint.sh mysqld      Up      0.0.0.0:3307-&gt;3306/tcp, 33060/tcp
+<span class="ln"> 8</span>cakephp3_nginx_1    nginx -g daemon off;             Up      0.0.0.0:443-&gt;443/tcp, 0.0.0.0:80-&gt;80/tcp
+<span class="ln"> 9</span>cakephp3_phpfpm_1   docker-php-entrypoint php-fpm    Up      9000/tcp
+<span class="ln">10</span>
+</code></pre></div><p>refs &hellip; http://localhost:8765</p>
+<p>If you want to connect mysql,</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ docker-compose exec mysql mysql -ppasswd
+<span class="ln">2</span>$ docker-compose up -d
+<span class="ln">3</span>$ docker-compose ps
+</code></pre></div><h2 id="add-phpmyadmin">Add phpmyadmin</h2>
+<p>Add following lines in docker-compose.yml.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>  phpmyadmin:
+<span class="ln"> 2</span>    image: phpmyadmin/phpmyadmin:latest
+<span class="ln"> 3</span>    ports:
+<span class="ln"> 4</span>      - 8888:80
+<span class="ln"> 5</span>    environment:
+<span class="ln"> 6</span>      - PMA_ARBITRARY=1
+<span class="ln"> 7</span>      - PMA_HOST=mysql
+<span class="ln"> 8</span>      - PMA_USER=root
+<span class="ln"> 9</span>      - PMA_PASSWORD=password
+<span class="ln">10</span>    depends_on:
+<span class="ln">11</span>      - mysql
+<span class="ln">12</span>      - phpfpm
+<span class="ln">13</span>      - nginx
+<span class="ln">14</span>    # Connect a container to another container
+<span class="ln">15</span>    links:
+<span class="ln">16</span>      - mysql
+<span class="ln">17</span>      - phpfpm
+<span class="ln">18</span>      - nginx
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ docker-compose ps
+<span class="ln">2</span>        Name                       Command               State                    Ports
+<span class="ln">3</span>---------------------------------------------------------------------------------------------------------
+<span class="ln">4</span>cakephp3_host_1         docker-php-entrypoint /bin ...   Up      0.0.0.0:8765-&gt;80/tcp
+<span class="ln">5</span>cakephp3_mysql_1        docker-entrypoint.sh mysqld      Up      0.0.0.0:3307-&gt;3306/tcp, 33060/tcp
+<span class="ln">6</span>cakephp3_nginx_1        nginx -g daemon off;             Up      0.0.0.0:443-&gt;443/tcp, 0.0.0.0:80-&gt;80/tcp
+<span class="ln">7</span>cakephp3_phpfpm_1       docker-php-entrypoint php-fpm    Up      9000/tcp
+<span class="ln">8</span>cakephp3_phpmyadmin_1   /docker-entrypoint.sh apac ...   Up      0.0.0.0:8888-&gt;80/tcp
 </code></pre></div>
 
         <div class="share-icons d-flex justify-content-center d-print-none">
