@@ -17,8 +17,7 @@
       <pubDate>Thu, 09 Apr 2020 22:40:09 +0900</pubDate>
       
       <guid>https://tkondoh1022.github.io/post/laravel-setup/</guid>
-      <description>Laravel https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B
-1$ cd work-github 2$ git clone https://github.com/ucan-lab/docker-laravel.git laravel 3$ cd laravel 4$ rm -rf .git 5$ git init 6$ tree . 7. 8|-- LICENSE 9|-- Makefile 10|-- README.md 11|-- docker 12| |-- ash 13| | |-- aliases.sh 14| | `-- color_prompt.sh 15| |-- mysql 16| | `-- my.cnf 17| |-- nginx 18| | `-- default.conf 19| `-- php 20| |-- Dockerfile 21| |-- php.ini 22| `-- psysh 23| `-- config.</description>
+      <description>Laravel  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup GitHub  Create repogitory on GitHub: laravel  Setup WorkDir 1$ mkdir -p work-github/laravel 2$ cd work-github/laravel 3$ echo &amp;#34;# laravel&amp;#34; &amp;gt;&amp;gt; README.md 4$ git init 5$ git add README.md 6$ git commit -m &amp;#34;first commit&amp;#34; 7$ git remote add origin https://github.com/tkondoh1022/laravel.git 8$ git push -u origin master Setup files 1$ tree . 2. 3├── LICENSE 4├── Makefile 5├── README.</description>
     </item>
     
   </channel>
