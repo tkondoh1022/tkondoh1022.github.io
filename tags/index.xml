@@ -6,15 +6,24 @@
     <description>Recent content in Tags on tkondoh</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, Takeo Kondoh; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 07 Apr 2020 17:55:26 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 22:40:09 +0900</lastBuildDate>
     
 	<atom:link href="https://tkondoh1022.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>laravel</title>
+      <link>https://tkondoh1022.github.io/tags/laravel/</link>
+      <pubDate>Thu, 09 Apr 2020 22:40:09 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/tags/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>cakephp</title>
       <link>https://tkondoh1022.github.io/tags/cakephp/</link>
-      <pubDate>Tue, 07 Apr 2020 17:55:26 +0900</pubDate>
+      <pubDate>Wed, 08 Apr 2020 21:45:49 +0900</pubDate>
       
       <guid>https://tkondoh1022.github.io/tags/cakephp/</guid>
       <description></description>

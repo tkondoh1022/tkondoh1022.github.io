@@ -6,10 +6,23 @@
     <description>Recent content in cakephp on tkondoh</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, Takeo Kondoh; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 07 Apr 2020 17:55:26 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2020 21:45:49 +0900</lastBuildDate>
     
 	<atom:link href="https://tkondoh1022.github.io/tags/cakephp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cakephp Tutrial</title>
+      <link>https://tkondoh1022.github.io/post/cakephp-tutrial/</link>
+      <pubDate>Wed, 08 Apr 2020 21:45:49 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/post/cakephp-tutrial/</guid>
+      <description>Note  phpmyadmin: http://localhost:8888/db_structure.php?server=1&amp;amp;db=my_app  Sample https://programming.best/cakephp-controller-sample-2/
+bake https://www.sejuku.net/blog/26423
+$ make phpfpm /var/www/html # cd sample /var/www/html # ./bin/cake bake controller foo
+Creta database https://book.cakephp.org/3/ja/tutorials-and-examples/cms/database.html
+Create database using phpmyadmin.</description>
+    </item>
     
     <item>
       <title>Cakephp Setup</title>
