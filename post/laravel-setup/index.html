@@ -204,13 +204,24 @@ Laravel Setup | tkondoh
 <span class="ln">20</span>└── src
 <span class="ln">21</span>    └── README.md
 <span class="ln">22</span>
-<span class="ln">23</span>$ git add -A
-<span class="ln">24</span>$ git ci -m set-init-files
-<span class="ln">25</span>$ git push
+<span class="ln">23</span>$ cat ./docker/php/Dockerfile
+<span class="ln">24</span> :
+<span class="ln">25</span># Add user
+<span class="ln">26</span>RUN addgroup -g ${DOCKER_GID} ${DOCKER_USER}
+<span class="ln">27</span>RUN adduser  -S -u ${DOCKER_UID} -G ${DOCKER_USER}  ${DOCKER_USER} ${DOCKER_USER}  &amp;&amp; echo ${DOCKER_USER}:${DOCKER_PASSWORD} | chpasswd
+<span class="ln">28</span>
+<span class="ln">29</span>$ git add -A
+<span class="ln">30</span>$ git ci -m set-init-files
+<span class="ln">31</span>$ git push
+<span class="ln">32</span>
+<span class="ln">33</span>$ grep artisan ~/.bashrc
+<span class="ln">34</span>alias artisan=&#39;docker-compose exec -u tkondoh app php artisan&#39;
+<span class="ln">35</span>$ . ~/.bashrc
 </code></pre></div><h2 id="crate-sample-project-featurelsapp">Crate sample project: feature/lsapp</h2>
 <ul>
 <li>ref: <a href="https://github.com/bradtraversy/lsapp">https://github.com/bradtraversy/lsapp</a></li>
 </ul>
+<h3 id="init">Init</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ diff .env-example .env-lsapp
 <span class="ln"> 2</span>1,2c1,2
 <span class="ln"> 3</span>&lt; #COMPOSE_PROJECT_NAME=myproject
@@ -222,43 +233,30 @@ Laravel Setup | tkondoh
 <span class="ln"> 9</span>&gt; APP_NAME=LSAPP
 <span class="ln">10</span>
 <span class="ln">11</span>$ make create-project
-<span class="ln">12</span>$ git add .env src-lsapp/
-<span class="ln">13</span>$ git ci -m create-project
-<span class="ln">14</span>
-<span class="ln">15</span>$ make ps
-<span class="ln">16</span>docker-compose ps
-<span class="ln">17</span>       Name                     Command               State                  Ports
-<span class="ln">18</span>-------------------------------------------------------------------------------------------------
-<span class="ln">19</span>lsapp_app_1          docker-php-entrypoint php-fpm    Up       0.0.0.0:18000-&gt;8000/tcp, 9000/tcp
-<span class="ln">20</span>lsapp_db-testing_1   docker-entrypoint.sh mysqld      Up       0.0.0.0:13307-&gt;3306/tcp, 33060/tcp
-<span class="ln">21</span>lsapp_db_1           docker-entrypoint.sh mysqld      Exit 1
-<span class="ln">22</span>lsapp_mail_1         MailHog                          Up       1025/tcp, 0.0.0.0:18025-&gt;8025/tcp
-<span class="ln">23</span>lsapp_node_1         docker-entrypoint.sh node        Up
-<span class="ln">24</span>lsapp_redis_1        docker-entrypoint.sh redis ...   Up       6379/tcp
-<span class="ln">25</span>lsapp_web_1          nginx -g daemon off;             Up       0.0.0.0:10080-&gt;80/tcp
-<span class="ln">26</span>phpmyadmin           /docker-entrypoint.sh apac ...   Up       0.0.0.0:8080-&gt;80/tcp
-<span class="ln">27</span>
-<span class="ln">28</span>$ make logs  | grep -i error
-<span class="ln">29</span>db_1          | 2020-04-14T16:39:14.944079+09:00 0 [ERROR] [MY-010187] [Server] Could not open file &#39;/var/log/mysql/mysql-error.log&#39; for error logging: Permission denied
-<span class="ln">30</span>db_1          | 2020-04-14T16:39:14.944253+09:00 0 [ERROR] [MY-013236] [Server] The designated data directory /var/lib/mysql/ is unusable. You can remove all files that the server added to it.
-<span class="ln">31</span>db_1          | 2020-04-14T16:39:14.944272+09:00 0 [ERROR] [MY-010119] [Server] Aborting
-<span class="ln">32</span>
-<span class="ln">33</span>$ sudo chmod -R 777 logs
-<span class="ln">34</span>$ make up
-<span class="ln">35</span>docker-compose up -d
-<span class="ln">36</span>       Name                     Command               State                 Ports
-<span class="ln">37</span>------------------------------------------------------------------------------------------------
-<span class="ln">38</span>lsapp_app_1          docker-php-entrypoint php-fpm    Up      0.0.0.0:18000-&gt;8000/tcp, 9000/tcp
-<span class="ln">39</span>lsapp_db-testing_1   docker-entrypoint.sh mysqld      Up      0.0.0.0:13307-&gt;3306/tcp, 33060/tcp
-<span class="ln">40</span>lsapp_db_1           docker-entrypoint.sh mysqld      Up      0.0.0.0:13306-&gt;3306/tcp, 33060/tcp
-<span class="ln">41</span>lsapp_mail_1         MailHog                          Up      1025/tcp, 0.0.0.0:18025-&gt;8025/tcp
-<span class="ln">42</span>lsapp_node_1         docker-entrypoint.sh node        Up
-<span class="ln">43</span>lsapp_redis_1        docker-entrypoint.sh redis ...   Up      6379/tcp
-<span class="ln">44</span>lsapp_web_1          nginx -g daemon off;             Up      0.0.0.0:10080-&gt;80/tcp
-<span class="ln">45</span>phpmyadmin           /docker-entrypoint.sh apac ...   Up      0.0.0.0:8080-&gt;80/tcp
+<span class="ln">12</span>docker-compose up -d --build
+<span class="ln">13</span>docker-compose exec app composer create-project --prefer-dist laravel/laravel .
+<span class="ln">14</span>docker-compose exec app composer require predis/predis
+<span class="ln">15</span>sudo chown tkondoh:tkondoh -R ./src-lsapp
+<span class="ln">16</span>
+<span class="ln">17</span>$ make ps
+<span class="ln">18</span>docker-compose ps
+<span class="ln">19</span>       Name                     Command               State                 Ports
+<span class="ln">20</span>------------------------------------------------------------------------------------------------
+<span class="ln">21</span>lsapp_app_1          docker-php-entrypoint php-fpm    Up      0.0.0.0:18000-&gt;8000/tcp, 9000/tcp
+<span class="ln">22</span>lsapp_db-testing_1   docker-entrypoint.sh mysqld      Up      0.0.0.0:13307-&gt;3306/tcp, 33060/tcp
+<span class="ln">23</span>lsapp_db_1           docker-entrypoint.sh mysqld      Up      0.0.0.0:13306-&gt;3306/tcp, 33060/tcp
+<span class="ln">24</span>lsapp_mail_1         MailHog                          Up      1025/tcp, 0.0.0.0:18025-&gt;8025/tcp
+<span class="ln">25</span>lsapp_node_1         docker-entrypoint.sh node        Up
+<span class="ln">26</span>lsapp_phpmyadmin_1   /docker-entrypoint.sh apac ...   Up      0.0.0.0:8080-&gt;80/tcp
+<span class="ln">27</span>lsapp_redis_1        docker-entrypoint.sh redis ...   Up      6379/tcp
+<span class="ln">28</span>lsapp_web_1          nginx -g daemon off;             Up      0.0.0.0:10080-&gt;80/tcp
+<span class="ln">29</span>
+<span class="ln">30</span>$ git add -A
+<span class="ln">31</span>$ git ci -m create-project
+<span class="ln">32</span>$ git push
 </code></pre></div><p>Accsess http://127.0.0.1:10080/</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>
-</code></pre></div>
+<h3 id="update">Update</h3>
+
 
         <div class="share-icons d-flex justify-content-center d-print-none">
             <a href="https://twitter.com/intent/tweet?url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-setup%2f&text=Laravel%20Setup&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
