@@ -4,20 +4,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <meta property="og:title" content="Laravel Setup" />
-<meta property="og:description" content="Laravel  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup GitHub  Create repogitory on GitHub: laravel  Setup WorkDir 1$ mkdir -p work-github/laravel 2$ cd work-github/laravel 3$ echo &#34;# laravel&#34; &gt;&gt; README.md 4$ git init 5$ git add README.md 6$ git commit -m &#34;first commit&#34; 7$ git remote add origin https://github.com/tkondoh1022/laravel.git 8$ git push -u origin master Setup files 1$ tree . 2. 3├── LICENSE 4├── Makefile 5├── README." />
+        <meta property="og:title" content="Laravel Tutorial" />
+<meta property="og:description" content="Create New Project: feature/lsapp  ref: https://github.com/bradtraversy/lsapp  1$ diff .env-example .env-lsapp 21,2c1,2 3&lt; #COMPOSE_PROJECT_NAME=myproject 4&lt; PROJECT_PATH=./src 5--- 6&gt; COMPOSE_PROJECT_NAME=lsapp 7&gt; PROJECT_PATH=./src-lsapp 84a5 9&gt; APP_NAME=LSAPP 10 11$ make create-project 12docker-compose up -d --build 13docker-compose exec app composer create-project --prefer-dist laravel/laravel . 14docker-compose exec app composer require predis/predis 15sudo chown -R tkondoh:tkondoh ./src-lsapp 16 17$ make ps 18docker-compose ps 19 Name Command State Ports 20------------------------------------------------------------------------------------------------ 21lsapp_app_1 docker-php-entrypoint php-fpm Up 0.0.0.0:18000-&gt;8000/tcp, 9000/tcp 22lsapp_db-testing_1 docker-entrypoint." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tkondoh1022.github.io/post/laravel-setup/" />
-<meta property="article:published_time" content="2020-04-09T22:40:09+09:00" />
-<meta property="article:modified_time" content="2020-04-09T22:40:09+09:00" />
+<meta property="og:url" content="https://tkondoh1022.github.io/post/laravel-tutorial/" />
+<meta property="article:published_time" content="2020-04-19T12:19:25+09:00" />
+<meta property="article:modified_time" content="2020-04-19T12:19:25+09:00" />
 
         <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Laravel Setup"/>
-<meta name="twitter:description" content="Laravel  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup GitHub  Create repogitory on GitHub: laravel  Setup WorkDir 1$ mkdir -p work-github/laravel 2$ cd work-github/laravel 3$ echo &#34;# laravel&#34; &gt;&gt; README.md 4$ git init 5$ git add README.md 6$ git commit -m &#34;first commit&#34; 7$ git remote add origin https://github.com/tkondoh1022/laravel.git 8$ git push -u origin master Setup files 1$ tree . 2. 3├── LICENSE 4├── Makefile 5├── README."/>
+<meta name="twitter:title" content="Laravel Tutorial"/>
+<meta name="twitter:description" content="Create New Project: feature/lsapp  ref: https://github.com/bradtraversy/lsapp  1$ diff .env-example .env-lsapp 21,2c1,2 3&lt; #COMPOSE_PROJECT_NAME=myproject 4&lt; PROJECT_PATH=./src 5--- 6&gt; COMPOSE_PROJECT_NAME=lsapp 7&gt; PROJECT_PATH=./src-lsapp 84a5 9&gt; APP_NAME=LSAPP 10 11$ make create-project 12docker-compose up -d --build 13docker-compose exec app composer create-project --prefer-dist laravel/laravel . 14docker-compose exec app composer require predis/predis 15sudo chown -R tkondoh:tkondoh ./src-lsapp 16 17$ make ps 18docker-compose ps 19 Name Command State Ports 20------------------------------------------------------------------------------------------------ 21lsapp_app_1 docker-php-entrypoint php-fpm Up 0.0.0.0:18000-&gt;8000/tcp, 9000/tcp 22lsapp_db-testing_1 docker-entrypoint."/>
 
         
         <title>
-Laravel Setup | tkondoh
+Laravel Tutorial | tkondoh
 </title>
 
         <link rel="icon" type="image/png" href='https://tkondoh1022.github.io/images/favicon-16x16.png' sizes="16x16">
@@ -44,7 +44,7 @@ Laravel Setup | tkondoh
 <meta name="copyright" content="Copyright © 2019, Takeo Kondoh; all rights reserved." />
 
 
-<meta name="description" content="Laravel  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup GitHub  Create repogitory on GitHub: laravel  Setup WorkDir 1$ mkdir -p work-github/laravel 2$ cd work-github/laravel 3$ echo &amp;#34;# laravel&amp;#34; &amp;gt;&amp;gt; README.md 4$ git init 5$ git add README.md 6$ git commit -m &amp;#34;first commit&amp;#34; 7$ git remote add origin https://github.com/tkondoh1022/laravel.git 8$ git push -u origin master Setup files 1$ tree . 2. 3├── LICENSE 4├── Makefile 5├── README.">
+<meta name="description" content="Create New Project: feature/lsapp  ref: https://github.com/bradtraversy/lsapp  1$ diff .env-example .env-lsapp 21,2c1,2 3&amp;lt; #COMPOSE_PROJECT_NAME=myproject 4&amp;lt; PROJECT_PATH=./src 5--- 6&amp;gt; COMPOSE_PROJECT_NAME=lsapp 7&amp;gt; PROJECT_PATH=./src-lsapp 84a5 9&amp;gt; APP_NAME=LSAPP 10 11$ make create-project 12docker-compose up -d --build 13docker-compose exec app composer create-project --prefer-dist laravel/laravel . 14docker-compose exec app composer require predis/predis 15sudo chown -R tkondoh:tkondoh ./src-lsapp 16 17$ make ps 18docker-compose ps 19 Name Command State Ports 20------------------------------------------------------------------------------------------------ 21lsapp_app_1 docker-php-entrypoint php-fpm Up 0.0.0.0:18000-&amp;gt;8000/tcp, 9000/tcp 22lsapp_db-testing_1 docker-entrypoint.">
 
 
     
@@ -85,17 +85,17 @@ Laravel Setup | tkondoh
         <div class="main">
             
 <div class="container mt-4 post">
-    <h1>Laravel Setup</h1>
+    <h1>Laravel Tutorial</h1>
     <div class="mb-3">
     <small>
         <strong>By Takeo Kondoh</strong>
-        | <i class="far fa-calendar-alt"></i>&nbsp;Apr 9, 2020&nbsp;
+        | <i class="far fa-calendar-alt"></i>&nbsp;Apr 19, 2020&nbsp;
         | <i class="fa fa-tags" title="Tags" aria-hidden="true"></i> <a href='https://tkondoh1022.github.io/tags/laravel/'>laravel</a>
     </small>
 </div>
 
     <div class="share-icons d-flex justify-content-center d-print-none">
-        <a href="https://twitter.com/intent/tweet?url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-setup%2f&text=Laravel%20Setup&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
+        <a href="https://twitter.com/intent/tweet?url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-tutorial%2f&text=Laravel%20Tutorial&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
     <div>
         <span class="fa-stack">
             <i class="fas fa-circle fa-stack-2x"></i>
@@ -105,7 +105,7 @@ Laravel Setup | tkondoh
     <div class="fa-inverse text-center"><small>Tweet</small></div>
 </a>
 
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-setup%2f&t=Laravel%20Setup" class="p-2" title="Share on Facebook" target="_blank" rel="nofollow">
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-tutorial%2f&t=Laravel%20Tutorial" class="p-2" title="Share on Facebook" target="_blank" rel="nofollow">
     <div>
         <span class="fa-stack">
             <i class="fas fa-circle fa-stack-2x"></i>
@@ -115,7 +115,7 @@ Laravel Setup | tkondoh
     <div class="fa-inverse text-center"><small>Share</small></div>
 </a>
 
-<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-setup%2f&title=Laravel%20Setup&source=mattbutton.com" class="p-2" title="Share on LinkedIn" target="_blank" rel="nofollow">
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-tutorial%2f&title=Laravel%20Tutorial&source=mattbutton.com" class="p-2" title="Share on LinkedIn" target="_blank" rel="nofollow">
     <div>
         <span class="fa-stack">
             <i class="fas fa-circle fa-stack-2x"></i>
@@ -142,83 +142,17 @@ Laravel Setup | tkondoh
         <h3>[ contents ]</h3>
         <nav id="TableOfContents">
   <ol>
-    <li><a href="#laravel">Laravel</a>
+    <li>
       <ol>
-        <li><a href="#setup-github">Setup GitHub</a></li>
-        <li><a href="#setup-workdir">Setup WorkDir</a></li>
-        <li><a href="#setup-files">Setup files</a></li>
         <li><a href="#create-new-project-featurelsapp">Create New Project: feature/lsapp</a></li>
+        <li><a href="#setup-database">Setup database</a></li>
       </ol>
     </li>
   </ol>
 </nav>
         
 
-        <h1 id="laravel">Laravel</h1>
-<ul>
-<li>refs: <a href="https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B">https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B</a></li>
-<li>spec:
-<ul>
-<li>nginx</li>
-<li>mysql</li>
-<li>phpmyadmin</li>
-<li>node</li>
-<li>redis</li>
-<li>mailhog</li>
-</ul>
-</li>
-</ul>
-<h2 id="setup-github">Setup GitHub</h2>
-<ul>
-<li>Create repogitory on GitHub: laravel</li>
-</ul>
-<h2 id="setup-workdir">Setup WorkDir</h2>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ mkdir -p  work-github/laravel
-<span class="ln">2</span>$ cd work-github/laravel
-<span class="ln">3</span>$ echo &#34;# laravel&#34; &gt;&gt; README.md
-<span class="ln">4</span>$ git init
-<span class="ln">5</span>$ git add README.md
-<span class="ln">6</span>$ git commit -m &#34;first commit&#34;
-<span class="ln">7</span>$ git remote add origin https://github.com/tkondoh1022/laravel.git
-<span class="ln">8</span>$ git push -u origin master
-</code></pre></div><h2 id="setup-files">Setup files</h2>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ tree .
-<span class="ln"> 2</span>.
-<span class="ln"> 3</span>├── LICENSE
-<span class="ln"> 4</span>├── Makefile
-<span class="ln"> 5</span>├── README.md
-<span class="ln"> 6</span>├── docker
-<span class="ln"> 7</span>│   ├── ash
-<span class="ln"> 8</span>│   │   ├── aliases.sh
-<span class="ln"> 9</span>│   │   └── color_prompt.sh
-<span class="ln">10</span>│   ├── mysql
-<span class="ln">11</span>│   │   └── my.cnf
-<span class="ln">12</span>│   ├── nginx
-<span class="ln">13</span>│   │   └── default.conf
-<span class="ln">14</span>│   └── php
-<span class="ln">15</span>│       ├── Dockerfile
-<span class="ln">16</span>│       ├── php.ini
-<span class="ln">17</span>│       └── psysh
-<span class="ln">18</span>│           └── config.php
-<span class="ln">19</span>├── docker-compose.yml
-<span class="ln">20</span>└── src
-<span class="ln">21</span>    └── README.md
-<span class="ln">22</span>
-<span class="ln">23</span>$ cat ./docker/php/Dockerfile
-<span class="ln">24</span> :
-<span class="ln">25</span># Add user
-<span class="ln">26</span>RUN addgroup -g ${DOCKER_GID} ${DOCKER_USER}
-<span class="ln">27</span>RUN adduser  -S -u ${DOCKER_UID} -G ${DOCKER_USER}  ${DOCKER_USER} ${DOCKER_USER}  &amp;&amp; echo ${DOCKER_USER}:${DOCKER_PASSWORD} | chpasswd
-<span class="ln">28</span>
-<span class="ln">29</span>$ git add -A
-<span class="ln">30</span>$ git ci -m set-init-files
-<span class="ln">31</span>$ git push
-<span class="ln">32</span>
-<span class="ln">33</span>$ grep artisan ~/.bashrc
-<span class="ln">34</span>alias artisan=&#39;docker-compose exec -u tkondoh app php artisan&#39;
-<span class="ln">35</span>alias artisan=&#39;docker-compose exec app composer&#39;
-<span class="ln">36</span>$ . ~/.bashrc
-</code></pre></div><h2 id="create-new-project-featurelsapp">Create New Project: feature/lsapp</h2>
+        <h2 id="create-new-project-featurelsapp">Create New Project: feature/lsapp</h2>
 <ul>
 <li>ref: <a href="https://github.com/bradtraversy/lsapp">https://github.com/bradtraversy/lsapp</a></li>
 </ul>
@@ -276,10 +210,134 @@ Laravel Setup | tkondoh
 <span class="ln">19</span>    ├── storage/   ... フレームワークが使用するファイル
 <span class="ln">20</span>    ├── tests/     ... テストコード
 <span class="ln">21</span>    └── vendor/    ... Composer でインストールしたライブラリ
+</code></pre></div><h2 id="setup-database">Setup database</h2>
+<h3 id="接続設定">接続設定</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>DB_PORT=13306
+<span class="ln">2</span>DB_TESTING_PORT=13307
+<span class="ln">3</span>DB_NAME=homestead
+<span class="ln">4</span>DB_USER=homestead
+<span class="ln">5</span>DB_PASS=secret
+</code></pre></div><h3 id="マイグレーション">マイグレーション</h3>
+<h4 id="マイグレーションファイルの作成">マイグレーションファイルの作成</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ pwd
+<span class="ln">2</span>~/work-github/laravel
+<span class="ln">3</span>
+<span class="ln">4</span>$ artisan make:migration create_books_table --create=books
+<span class="ln">5</span>Created Migration: 2020_04_16_075618_create_books_table
+<span class="ln">6</span>
+<span class="ln">7</span>$ edit src-lsapp/database/migrations/2020_04_16_075618_create_books_table.php
+</code></pre></div><h4 id="マイグレーションの実行">マイグレーションの実行</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ artisan migrate
+<span class="ln">2</span>Migration table created successfully.
+<span class="ln">3</span>Migrating: 2014_10_12_000000_create_users_table
+<span class="ln">4</span>Migrated:  2014_10_12_000000_create_users_table (0.17 seconds)
+<span class="ln">5</span>Migrating: 2019_08_19_000000_create_failed_jobs_table
+<span class="ln">6</span>Migrated:  2019_08_19_000000_create_failed_jobs_table (0.09 seconds)
+<span class="ln">7</span>Migrating: 2020_04_16_080750_create_books_table
+<span class="ln">8</span>Migrated:  2020_04_16_080750_create_books_table (0.11 seconds)
+</code></pre></div><p>Check with phpmyadmin &hellip; http://localhost:8080/</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ make mysql
+<span class="ln"> 2</span>mysql&gt; desc books;
+<span class="ln"> 3</span>+------------|-----------------|------|-----|---------|----------------+
+<span class="ln"> 4</span>| Field      | Type            | Null | Key | Default | Extra          |
+<span class="ln"> 5</span>+------------|-----------------|------|-----|---------|----------------+
+<span class="ln"> 6</span>| id         | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+<span class="ln"> 7</span>| created_at | timestamp       | YES  |     | NULL    |                |
+<span class="ln"> 8</span>| updated_at | timestamp       | YES  |     | NULL    |                |
+<span class="ln"> 9</span>| name       | varchar(50)     | NO   |     | NULL    |                |
+<span class="ln">10</span>| price      | int             | NO   |     | NULL    |                |
+<span class="ln">11</span>| author     | varchar(50)     | YES  |     | NULL    |                |
+<span class="ln">12</span>+------------|-----------------|------|-----|---------|----------------+
+</code></pre></div><h3 id="モデル作成">モデル作成</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ artisan make:model Book
+<span class="ln"> 2</span>Model created successfully.
+<span class="ln"> 3</span>
+<span class="ln"> 4</span>$ cat  src-lsapp/app/Book.php
+<span class="ln"> 5</span>&lt;?php
+<span class="ln"> 6</span>
+<span class="ln"> 7</span>namespace App;
+<span class="ln"> 8</span>
+<span class="ln"> 9</span>use Illuminate\Database\Eloquent\Model;
+<span class="ln">10</span>
+<span class="ln">11</span>class Book extends Model
+<span class="ln">12</span>{
+<span class="ln">13</span>    //
+<span class="ln">14</span>}
+<span class="ln">15</span>
+</code></pre></div><h3 id="シーディング">シーディング</h3>
+<p>※シーディング &hellip; データベースに初期データやテストデータを流し込むこと。</p>
+<h4 id="1シーダーファイルの作成">1.シーダーファイルの作成</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ artisan make:seeder BooksTableSeeder
+<span class="ln"> 2</span>Seeder created successfully.
+<span class="ln"> 3</span>
+<span class="ln"> 4</span>$ cat src-lsapp/database/seeds/BooksTableSeeder.php
+<span class="ln"> 5</span>&lt;?php
+<span class="ln"> 6</span>
+<span class="ln"> 7</span>use Illuminate\Database\Seeder;
+<span class="ln"> 8</span>
+<span class="ln"> 9</span>class BooksTableSeeder extends Seeder
+<span class="ln">10</span>{
+<span class="ln">11</span>    /**
+<span class="ln">12</span>     * Run the database seeds.
+<span class="ln">13</span>     *
+<span class="ln">14</span>     * @return void
+<span class="ln">15</span>     */
+<span class="ln">16</span>    public function run()
+<span class="ln">17</span>    {
+<span class="ln">18</span>        //
+<span class="ln">19</span>    }
+<span class="ln">20</span>}
+<span class="ln">21</span>
+</code></pre></div><h4 id="2シーダーファイルの実行">2.シーダーファイルの実行</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ artisan db:seed
+<span class="ln"> 2</span>
+<span class="ln"> 3</span>   Illuminate\Contracts\Container\BindingResolutionException
+<span class="ln"> 4</span>
+<span class="ln"> 5</span>  Target class [BooksTableSeeder] does not exist.
+<span class="ln"> 6</span>
+<span class="ln"> 7</span>  at vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+<span class="ln"> 8</span>    805|
+<span class="ln"> 9</span>    806|         try {
+<span class="ln">10</span>    807|             $reflector = new ReflectionClass($concrete);
+<span class="ln">11</span>    808|         } catch (ReflectionException $e) {
+<span class="ln">12</span>  &gt; 809|             throw new BindingResolutionException(&#34;Target class [$concrete] does not exist.&#34;, 0, $e);
+<span class="ln">13</span>    810|         }
+<span class="ln">14</span>    811|
+<span class="ln">15</span>    812|         // If the type is not instantiable, the developer is attempting to resolve
+<span class="ln">16</span>    813|         // an abstract type such as an Interface or Abstract Class and there is
+<span class="ln">17</span>
+<span class="ln">18</span>      +8 vendor frames
+<span class="ln">19</span>  9   database/seeds/DatabaseSeeder.php:17
+<span class="ln">20</span>      Illuminate\Database\Seeder::call(&#34;BooksTableSeeder&#34;)
+<span class="ln">21</span>
+<span class="ln">22</span>      +24 vendor frames
+<span class="ln">23</span>  34  artisan:37
+<span class="ln">24</span>      Illuminate\Foundation\Console\Kernel::handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+<span class="ln">25</span>
+<span class="ln">26</span>※ https://qiita.com/kshimadutsu/items/f2558419718b47ed0c5d
+<span class="ln">27</span>
+<span class="ln">28</span>$ compose exec app composer dump-autoload
+<span class="ln">29</span>&gt; Illuminate\Foundation\ComposerScripts::postAutoloadDump
+<span class="ln">30</span>&gt; @php artisan package:discover --ansi
+<span class="ln">31</span>Discovered Package: facade/ignition
+<span class="ln">32</span>Discovered Package: fideloper/proxy
+<span class="ln">33</span>Discovered Package: fruitcake/laravel-cors
+<span class="ln">34</span>Discovered Package: laravel/tinker
+<span class="ln">35</span>Discovered Package: nesbot/carbon
+<span class="ln">36</span>Discovered Package: nunomaduro/collision
+<span class="ln">37</span>Package manifest generated successfully.
+<span class="ln">38</span>Generated optimized autoload files containing 4486 classes
+<span class="ln">39</span>
+<span class="ln">40</span>$ artisan db:seed
+<span class="ln">41</span>Seeding: BooksTableSeeder
+<span class="ln">42</span>Seeded:  BooksTableSeeder (0.24 seconds)
+<span class="ln">43</span>Database seeding completed successfully.
+<span class="ln">44</span>
+<span class="ln">45</span>
 </code></pre></div>
 
         <div class="share-icons d-flex justify-content-center d-print-none">
-            <a href="https://twitter.com/intent/tweet?url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-setup%2f&text=Laravel%20Setup&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
+            <a href="https://twitter.com/intent/tweet?url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-tutorial%2f&text=Laravel%20Tutorial&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
     <div>
         <span class="fa-stack">
             <i class="fas fa-circle fa-stack-2x"></i>
@@ -289,7 +347,7 @@ Laravel Setup | tkondoh
     <div class="fa-inverse text-center"><small>Tweet</small></div>
 </a>
 
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-setup%2f&t=Laravel%20Setup" class="p-2" title="Share on Facebook" target="_blank" rel="nofollow">
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-tutorial%2f&t=Laravel%20Tutorial" class="p-2" title="Share on Facebook" target="_blank" rel="nofollow">
     <div>
         <span class="fa-stack">
             <i class="fas fa-circle fa-stack-2x"></i>
@@ -299,7 +357,7 @@ Laravel Setup | tkondoh
     <div class="fa-inverse text-center"><small>Share</small></div>
 </a>
 
-<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-setup%2f&title=Laravel%20Setup&source=mattbutton.com" class="p-2" title="Share on LinkedIn" target="_blank" rel="nofollow">
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-tutorial%2f&title=Laravel%20Tutorial&source=mattbutton.com" class="p-2" title="Share on LinkedIn" target="_blank" rel="nofollow">
     <div>
         <span class="fa-stack">
             <i class="fas fa-circle fa-stack-2x"></i>

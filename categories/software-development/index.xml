@@ -6,10 +6,19 @@
     <description>Recent content in Software Development on tkondoh</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, Takeo Kondoh; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 09 Apr 2020 22:40:09 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2020 12:19:25 +0900</lastBuildDate>
     
 	<atom:link href="https://tkondoh1022.github.io/categories/software-development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Laravel Tutorial</title>
+      <link>https://tkondoh1022.github.io/post/laravel-tutorial/</link>
+      <pubDate>Sun, 19 Apr 2020 12:19:25 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/post/laravel-tutorial/</guid>
+      <description>Create New Project: feature/lsapp  ref: https://github.com/bradtraversy/lsapp  1$ diff .env-example .env-lsapp 21,2c1,2 3&amp;lt; #COMPOSE_PROJECT_NAME=myproject 4&amp;lt; PROJECT_PATH=./src 5--- 6&amp;gt; COMPOSE_PROJECT_NAME=lsapp 7&amp;gt; PROJECT_PATH=./src-lsapp 84a5 9&amp;gt; APP_NAME=LSAPP 10 11$ make create-project 12docker-compose up -d --build 13docker-compose exec app composer create-project --prefer-dist laravel/laravel . 14docker-compose exec app composer require predis/predis 15sudo chown -R tkondoh:tkondoh ./src-lsapp 16 17$ make ps 18docker-compose ps 19 Name Command State Ports 20------------------------------------------------------------------------------------------------ 21lsapp_app_1 docker-php-entrypoint php-fpm Up 0.0.0.0:18000-&amp;gt;8000/tcp, 9000/tcp 22lsapp_db-testing_1 docker-entrypoint.</description>
+    </item>
     
     <item>
       <title>Laravel Setup</title>

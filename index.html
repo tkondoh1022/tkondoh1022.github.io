@@ -111,6 +111,23 @@
       
       
       <article class="post">
+        <a class="title" href="https://tkondoh1022.github.io/post/laravel-tutorial/"><h2>Laravel Tutorial</h2></a>
+        <div class="mb-3">
+    <small>
+        <strong>By Takeo Kondoh</strong>
+        | <i class="far fa-calendar-alt"></i>&nbsp;Apr 19, 2020&nbsp;
+        | <i class="fa fa-tags" title="Tags" aria-hidden="true"></i> <a href='https://tkondoh1022.github.io/tags/laravel/'>laravel</a>
+    </small>
+</div>
+        <div>
+            Create New Project: feature/lsapp  ref: https://github.com/bradtraversy/lsapp  1$ diff .env-example .env-lsapp 21,2c1,2 3&lt; #COMPOSE_PROJECT_NAME=myproject 4&lt; PROJECT_PATH=./src 5--- 6&gt; COMPOSE_PROJECT_NAME=lsapp 7&gt; PROJECT_PATH=./src-lsapp 84a5 9&gt; APP_NAME=LSAPP 10 11$ make create-project 12docker-compose up -d --build 13docker-compose exec app composer create-project --prefer-dist laravel/laravel . 14docker-compose exec app composer require predis/predis 15sudo chown -R tkondoh:tkondoh ./src-lsapp 16 17$ make ps 18docker-compose ps 19 Name Command State Ports 20------------------------------------------------------------------------------------------------ 21lsapp_app_1 docker-php-entrypoint php-fpm Up 0.0.0.0:18000-&gt;8000/tcp, 9000/tcp 22lsapp_db-testing_1 docker-entrypoint.
+        </div>
+        <div>
+            <a href="https://tkondoh1022.github.io/post/laravel-tutorial/" class="btn btn-outline-secondary" role="button">Continue Reading...</a>
+        </div>
+      </article>
+    
+      <article class="post">
         <a class="title" href="https://tkondoh1022.github.io/post/laravel-setup/"><h2>Laravel Setup</h2></a>
         <div class="mb-3">
     <small>
@@ -214,6 +231,8 @@ Create database using phpmyadmin.
     <h2 class="mt-4">Recent Posts</h2>
     <nav class="nav flex-column">
         
+        <a href="https://tkondoh1022.github.io/post/laravel-tutorial/" class="nav-link">Laravel Tutorial</a>
+        
         <a href="https://tkondoh1022.github.io/post/laravel-setup/" class="nav-link">Laravel Setup</a>
         
         <a href="https://tkondoh1022.github.io/post/cakephp-tutrial/" class="nav-link">Cakephp Tutrial</a>
@@ -231,7 +250,7 @@ Create database using phpmyadmin.
         
         <a href='https://tkondoh1022.github.io/categories/software-development/' class="nav-link">
         software-development
-        <span class="badge badge-pill badge-secondary">5</span>
+        <span class="badge badge-pill badge-secondary">6</span>
         </a>
         
     </nav>
@@ -244,13 +263,13 @@ Create database using phpmyadmin.
         <span class="badge badge-pill badge-secondary">2</span>
         </a>
         
-        <a href='https://tkondoh1022.github.io/tags/hugo/' class="nav-link">
-        hugo
-        <span class="badge badge-pill badge-secondary">1</span>
-        </a>
-        
         <a href='https://tkondoh1022.github.io/tags/laravel/' class="nav-link">
         laravel
+        <span class="badge badge-pill badge-secondary">2</span>
+        </a>
+        
+        <a href='https://tkondoh1022.github.io/tags/hugo/' class="nav-link">
+        hugo
         <span class="badge badge-pill badge-secondary">1</span>
         </a>
         
