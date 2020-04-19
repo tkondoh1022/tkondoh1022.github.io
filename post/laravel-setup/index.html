@@ -147,7 +147,8 @@ Laravel Setup | tkondoh
         <li><a href="#setup-github">Setup GitHub</a></li>
         <li><a href="#setup-workdir">Setup WorkDir</a></li>
         <li><a href="#setup-files">Setup files</a></li>
-        <li><a href="#crate-sample-project-featurelsapp">Crate sample project: feature/lsapp</a></li>
+        <li><a href="#create-new-project-featurelsapp">Create New Project: feature/lsapp</a></li>
+        <li><a href="#setup-database">Setup database</a></li>
       </ol>
     </li>
   </ol>
@@ -217,11 +218,10 @@ Laravel Setup | tkondoh
 <span class="ln">33</span>$ grep artisan ~/.bashrc
 <span class="ln">34</span>alias artisan=&#39;docker-compose exec -u tkondoh app php artisan&#39;
 <span class="ln">35</span>$ . ~/.bashrc
-</code></pre></div><h2 id="crate-sample-project-featurelsapp">Crate sample project: feature/lsapp</h2>
+</code></pre></div><h2 id="create-new-project-featurelsapp">Create New Project: feature/lsapp</h2>
 <ul>
 <li>ref: <a href="https://github.com/bradtraversy/lsapp">https://github.com/bradtraversy/lsapp</a></li>
 </ul>
-<h3 id="init">Init</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ diff .env-example .env-lsapp
 <span class="ln"> 2</span>1,2c1,2
 <span class="ln"> 3</span>&lt; #COMPOSE_PROJECT_NAME=myproject
@@ -236,7 +236,7 @@ Laravel Setup | tkondoh
 <span class="ln">12</span>docker-compose up -d --build
 <span class="ln">13</span>docker-compose exec app composer create-project --prefer-dist laravel/laravel .
 <span class="ln">14</span>docker-compose exec app composer require predis/predis
-<span class="ln">15</span>sudo chown tkondoh:tkondoh -R ./src-lsapp
+<span class="ln">15</span>sudo chown -R tkondoh:tkondoh ./src-lsapp
 <span class="ln">16</span>
 <span class="ln">17</span>$ make ps
 <span class="ln">18</span>docker-compose ps
@@ -255,8 +255,152 @@ Laravel Setup | tkondoh
 <span class="ln">31</span>$ git ci -m create-project
 <span class="ln">32</span>$ git push
 </code></pre></div><p>Accsess http://127.0.0.1:10080/</p>
-<h3 id="update">Update</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ tree ./src-lsapp
+<span class="ln"> 2</span>./src-lsapp
+<span class="ln"> 3</span>    ├── .editorconfig
+<span class="ln"> 4</span>    ├── .env       ... 環境設定情報
+<span class="ln"> 5</span>    ├── .env.example
+<span class="ln"> 6</span>    ├── app/       ... アプリケーションのロジック
+<span class="ln"> 7</span>    ├── artisan    ... laravel のコマンドラインツール
+<span class="ln"> 8</span>    ├── bootstrap/ ... laravel フレームワークの起動コード
+<span class="ln"> 9</span>    ├── composer.json
+<span class="ln">10</span>    ├── composer.lock
+<span class="ln">11</span>    ├── config/    ... 設定ファイル
+<span class="ln">12</span>    ├── database/  ... Migration ファイルなど DB 関連
+<span class="ln">13</span>    ├── package.json
+<span class="ln">14</span>    ├── phpunit.xml
+<span class="ln">15</span>    ├── public/    ... Web サーバのドキュメントルート
+<span class="ln">16</span>    ├── resources/ ... ビューや言語変換用ファイルなど
+<span class="ln">17</span>    ├── routes/    ... ルーティング用ファイル
+<span class="ln">18</span>    ├── server.php
+<span class="ln">19</span>    ├── storage/   ... フレームワークが使用するファイル
+<span class="ln">20</span>    ├── tests/     ... テストコード
+<span class="ln">21</span>    └── vendor/    ... Composer でインストールしたライブラリ
+</code></pre></div><h2 id="setup-database">Setup database</h2>
+<h3 id="接続設定">接続設定</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>DB_PORT=13306
+<span class="ln">2</span>DB_TESTING_PORT=13307
+<span class="ln">3</span>DB_NAME=homestead
+<span class="ln">4</span>DB_USER=homestead
+<span class="ln">5</span>DB_PASS=secret
+</code></pre></div><h3 id="マイグレーション">マイグレーション</h3>
+<h4 id="マイグレーションファイルの作成">マイグレーションファイルの作成</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ pwd
+<span class="ln">2</span>~/work-github/laravel
+<span class="ln">3</span>
+<span class="ln">4</span>$ artisan make:migration create_books_table --create=books
+<span class="ln">5</span>Created Migration: 2020_04_16_075618_create_books_table
+<span class="ln">6</span>
+<span class="ln">7</span>$ edit src-lsapp/database/migrations/2020_04_16_075618_create_books_table.php
+</code></pre></div><h4 id="マイグレーションの実行">マイグレーションの実行</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ artisan migrate
+<span class="ln">2</span>Migration table created successfully.
+<span class="ln">3</span>Migrating: 2014_10_12_000000_create_users_table
+<span class="ln">4</span>Migrated:  2014_10_12_000000_create_users_table (0.17 seconds)
+<span class="ln">5</span>Migrating: 2019_08_19_000000_create_failed_jobs_table
+<span class="ln">6</span>Migrated:  2019_08_19_000000_create_failed_jobs_table (0.09 seconds)
+<span class="ln">7</span>Migrating: 2020_04_16_080750_create_books_table
+<span class="ln">8</span>Migrated:  2020_04_16_080750_create_books_table (0.11 seconds)
+</code></pre></div><p>Check with phpmyadmin &hellip; http://localhost:8080/</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ make mysql
+<span class="ln"> 2</span>mysql&gt; desc books;
+<span class="ln"> 3</span>+------------|-----------------|------|-----|---------|----------------+
+<span class="ln"> 4</span>| Field      | Type            | Null | Key | Default | Extra          |
+<span class="ln"> 5</span>+------------|-----------------|------|-----|---------|----------------+
+<span class="ln"> 6</span>| id         | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+<span class="ln"> 7</span>| created_at | timestamp       | YES  |     | NULL    |                |
+<span class="ln"> 8</span>| updated_at | timestamp       | YES  |     | NULL    |                |
+<span class="ln"> 9</span>| name       | varchar(50)     | NO   |     | NULL    |                |
+<span class="ln">10</span>| price      | int             | NO   |     | NULL    |                |
+<span class="ln">11</span>| author     | varchar(50)     | YES  |     | NULL    |                |
+<span class="ln">12</span>+------------|-----------------|------|-----|---------|----------------+
+</code></pre></div><h3 id="モデル作成">モデル作成</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ artisan make:model Book
+<span class="ln"> 2</span>Model created successfully.
+<span class="ln"> 3</span>
+<span class="ln"> 4</span>$ cat  src-lsapp/app/Book.php
+<span class="ln"> 5</span>&lt;?php
+<span class="ln"> 6</span>
+<span class="ln"> 7</span>namespace App;
+<span class="ln"> 8</span>
+<span class="ln"> 9</span>use Illuminate\Database\Eloquent\Model;
+<span class="ln">10</span>
+<span class="ln">11</span>class Book extends Model
+<span class="ln">12</span>{
+<span class="ln">13</span>    //
+<span class="ln">14</span>}
+<span class="ln">15</span>
+</code></pre></div><h3 id="シーディング">シーディング</h3>
+<p>※シーディング &hellip; データベースに初期データやテストデータを流し込むこと。</p>
+<h4 id="1シーダーファイルの作成">1.シーダーファイルの作成</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ artisan make:seeder BooksTableSeeder
+<span class="ln"> 2</span>Seeder created successfully.
+<span class="ln"> 3</span>
+<span class="ln"> 4</span>$ cat src-lsapp/database/seeds/BooksTableSeeder.php
+<span class="ln"> 5</span>&lt;?php
+<span class="ln"> 6</span>
+<span class="ln"> 7</span>use Illuminate\Database\Seeder;
+<span class="ln"> 8</span>
+<span class="ln"> 9</span>class BooksTableSeeder extends Seeder
+<span class="ln">10</span>{
+<span class="ln">11</span>    /**
+<span class="ln">12</span>     * Run the database seeds.
+<span class="ln">13</span>     *
+<span class="ln">14</span>     * @return void
+<span class="ln">15</span>     */
+<span class="ln">16</span>    public function run()
+<span class="ln">17</span>    {
+<span class="ln">18</span>        //
+<span class="ln">19</span>    }
+<span class="ln">20</span>}
+<span class="ln">21</span>
+</code></pre></div><h4 id="2シーダーファイルの実行">2.シーダーファイルの実行</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>$ artisan db:seed
+<span class="ln"> 2</span>
+<span class="ln"> 3</span>   Illuminate\Contracts\Container\BindingResolutionException
+<span class="ln"> 4</span>
+<span class="ln"> 5</span>  Target class [BooksTableSeeder] does not exist.
+<span class="ln"> 6</span>
+<span class="ln"> 7</span>  at vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+<span class="ln"> 8</span>    805|
+<span class="ln"> 9</span>    806|         try {
+<span class="ln">10</span>    807|             $reflector = new ReflectionClass($concrete);
+<span class="ln">11</span>    808|         } catch (ReflectionException $e) {
+<span class="ln">12</span>  &gt; 809|             throw new BindingResolutionException(&#34;Target class [$concrete] does not exist.&#34;, 0, $e);
+<span class="ln">13</span>    810|         }
+<span class="ln">14</span>    811|
+<span class="ln">15</span>    812|         // If the type is not instantiable, the developer is attempting to resolve
+<span class="ln">16</span>    813|         // an abstract type such as an Interface or Abstract Class and there is
+<span class="ln">17</span>
+<span class="ln">18</span>      +8 vendor frames
+<span class="ln">19</span>  9   database/seeds/DatabaseSeeder.php:17
+<span class="ln">20</span>      Illuminate\Database\Seeder::call(&#34;BooksTableSeeder&#34;)
+<span class="ln">21</span>
+<span class="ln">22</span>      +24 vendor frames
+<span class="ln">23</span>  34  artisan:37
+<span class="ln">24</span>      Illuminate\Foundation\Console\Kernel::handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+<span class="ln">25</span>
+<span class="ln">26</span>※ https://qiita.com/kshimadutsu/items/f2558419718b47ed0c5d
+<span class="ln">27</span>
+<span class="ln">28</span>$ compose exec app composer dump-autoload
+<span class="ln">29</span>&gt; Illuminate\Foundation\ComposerScripts::postAutoloadDump
+<span class="ln">30</span>&gt; @php artisan package:discover --ansi
+<span class="ln">31</span>Discovered Package: facade/ignition
+<span class="ln">32</span>Discovered Package: fideloper/proxy
+<span class="ln">33</span>Discovered Package: fruitcake/laravel-cors
+<span class="ln">34</span>Discovered Package: laravel/tinker
+<span class="ln">35</span>Discovered Package: nesbot/carbon
+<span class="ln">36</span>Discovered Package: nunomaduro/collision
+<span class="ln">37</span>Package manifest generated successfully.
+<span class="ln">38</span>Generated optimized autoload files containing 4486 classes
+<span class="ln">39</span>
+<span class="ln">40</span>$ artisan db:seed
+<span class="ln">41</span>Seeding: BooksTableSeeder
+<span class="ln">42</span>Seeded:  BooksTableSeeder (0.24 seconds)
+<span class="ln">43</span>Database seeding completed successfully.
+<span class="ln">44</span>
+<span class="ln">45</span>
+</code></pre></div>
 
         <div class="share-icons d-flex justify-content-center d-print-none">
             <a href="https://twitter.com/intent/tweet?url=https%3a%2f%2ftkondoh1022.github.io%2fpost%2flaravel-setup%2f&text=Laravel%20Setup&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
