@@ -17,7 +17,7 @@
       <pubDate>Sun, 19 Apr 2020 12:19:25 +0900</pubDate>
       
       <guid>https://tkondoh1022.github.io/post/laravel-tutorial/</guid>
-      <description>Laravel Tutorial  https://qiita.com/sano1202/items/6021856b70e4f8d3dc3d http://localhost:10080/  Create New Project: feature/lsapp  ref: https://github.com/bradtraversy/lsapp  1$ diff .env-example .env-lsapp 21,2c1,2 3&amp;lt; #COMPOSE_PROJECT_NAME=myproject 4&amp;lt; PROJECT_PATH=./src 5--- 6&amp;gt; COMPOSE_PROJECT_NAME=lsapp 7&amp;gt; PROJECT_PATH=./src-lsapp 84a5 9&amp;gt; APP_NAME=LSAPP 10 11$ make create-project 12docker-compose up -d --build 13docker-compose exec app composer create-project --prefer-dist laravel/laravel . 14docker-compose exec app composer require predis/predis 15sudo chown -R tkondoh:tkondoh ./src-lsapp 16 17$ make ps 18docker-compose ps 19 Name Command State Ports 20------------------------------------------------------------------------------------------------ 21lsapp_app_1 docker-php-entrypoint php-fpm Up 0.</description>
+      <description>Laravel Tutorial  https://qiita.com/sano1202/items/6021856b70e4f8d3dc3d s- http://localhost:10080/  Create New Project: feature/lsapp  ref: https://github.com/bradtraversy/lsapp  1$ artisan --version 2Laravel Framework 7.8.1 3 4$ diff .env-example .env-lsapp 51,2c1,2 6&amp;lt; #COMPOSE_PROJECT_NAME=myproject 7&amp;lt; PROJECT_PATH=./src 8--- 9&amp;gt; COMPOSE_PROJECT_NAME=lsapp 10&amp;gt; PROJECT_PATH=./src-lsapp 114a5 12&amp;gt; APP_NAME=LSAPP 13 14$ make create-project 15docker-compose up -d --build 16docker-compose exec app composer create-project --prefer-dist laravel/laravel . 17docker-compose exec app composer require predis/predis 18sudo chown -R tkondoh:tkondoh ./src-lsapp 19 20$ make ps 21docker-compose ps 22 Name Command State Ports 23------------------------------------------------------------------------------------------------ 24lsapp_app_1 docker-php-entrypoint php-fpm Up 0.</description>
     </item>
     
     <item>
@@ -66,7 +66,7 @@ Create database using phpmyadmin.</description>
       <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://tkondoh1022.github.io/about/</guid>
-      <description>I&amp;rsquo;m s Software Engineer.</description>
+      <description>I&amp;rsquo;m a Software Engineer.</description>
     </item>
     
     <item>
