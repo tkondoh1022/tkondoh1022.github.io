@@ -404,7 +404,24 @@ s- http://localhost:10080/</li>
 <span class="ln">5</span>docker-compose exec node npm install
 <span class="ln">6</span>docker-compose exec node npm run dev
 <span class="ln">7</span>
-</code></pre></div><h2 id="補足よるデバッグ">（補足）よるデバッグ</h2>
+</code></pre></div><h3 id="mailgmail-smtp">Mail(gmail smtp)</h3>
+<p><a href="https://qiita.com/koru1893/items/e30d19ac97eac59b1e19">https://qiita.com/koru1893/items/e30d19ac97eac59b1e19</a></p>
+<p>set gmail app
+$ artisan make:mail SampleNotification</p>
+<script src="https://tkondoh1022.github.io/js/mermaid.min-8.5.js" defer></script>
+<div class="mermaid" align="center">
+    
+  graph TD
+
+  A[お正月] -->|お年玉をゲット| B(買い物に行くよ)
+  B --> C{どれにしようかな}
+  C -->|これかな| D[iTunes Card]
+  C -->|これかな| E[iPhone XS Max]
+  C -->|ま まさか| F[fa:fa-car The CLS Coupé]
+
+</div>
+
+<h2 id="補足よるデバッグ">（補足）よるデバッグ</h2>
 <p><a href="https://laraweb.net/practice/4298/">https://laraweb.net/practice/4298/</a></p>
 <h3 id="psysh">Psysh</h3>
 <h4 id="set-dev-server">Set dev-server</h4>
