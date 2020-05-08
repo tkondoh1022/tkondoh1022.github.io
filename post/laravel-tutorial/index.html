@@ -405,22 +405,21 @@ s- http://localhost:10080/</li>
 <span class="ln">6</span>docker-compose exec node npm run dev
 <span class="ln">7</span>
 </code></pre></div><h3 id="mailgmail-smtp">Mail(gmail smtp)</h3>
-<p><a href="https://qiita.com/koru1893/items/e30d19ac97eac59b1e19">https://qiita.com/koru1893/items/e30d19ac97eac59b1e19</a></p>
+<p><a href="https://qiita.com/sh_tomato/items/a0fee265420eec6a5976">https://qiita.com/sh_tomato/items/a0fee265420eec6a5976</a>
+<a href="https://qiita.com/koru1893/items/e30d19ac97eac59b1e19">https://qiita.com/koru1893/items/e30d19ac97eac59b1e19</a></p>
 <p>set gmail app
 $ artisan make:mail SampleNotification</p>
-<script src="https://tkondoh1022.github.io/js/mermaid.min-8.5.js" defer></script>
-<div class="mermaid" align="center">
-    
-  graph TD
-
-  A[お正月] -->|お年玉をゲット| B(買い物に行くよ)
-  B --> C{どれにしようかな}
-  C -->|これかな| D[iTunes Card]
-  C -->|これかな| E[iPhone XS Max]
-  C -->|ま まさか| F[fa:fa-car The CLS Coupé]
-
-</div>
-
+<p><a href="https://reffect.co.jp/laravel/laravel-send-email">https://reffect.co.jp/laravel/laravel-send-email</a></p>
+<p>$ artisan make:controller MailSendController</p>
+<p><a href="https://pgmemo.tokyo/data/archives/1312.html">https://pgmemo.tokyo/data/archives/1312.html</a></p>
+<h3 id="laravel-translator">Laravel Translator</h3>
+<p><a href="https://github.com/Stichoza/google-translate-php#installation">https://github.com/Stichoza/google-translate-php#installation</a>
+<a href="https://www.youtube.com/watch?v=MIH0eKQNVhY">https://www.youtube.com/watch?v=MIH0eKQNVhY</a></p>
+<p>$ composer require stichoza/google-translate-php</p>
+<h3 id="voyager---admin-panel">Voyager - admin panel</h3>
+<p><a href="https://github.com/the-control-group/voyager">https://github.com/the-control-group/voyager</a></p>
+<p>composer require tcg/voyager
+artisan voyager:install</p>
 <h2 id="補足よるデバッグ">（補足）よるデバッグ</h2>
 <p><a href="https://laraweb.net/practice/4298/">https://laraweb.net/practice/4298/</a></p>
 <h3 id="psysh">Psysh</h3>
@@ -453,9 +452,10 @@ $ artisan make:mail SampleNotification</p>
 <span class="ln"> 5</span>        $books = Book::all();
 <span class="ln"> 6</span>        \Debugbar::info(&#39;$users=&#39;.$books);  &lt;--(*)
 <span class="ln"> 7</span>        // 取得した値をビュー「book/index」に渡す
-<span class="ln"> 8</span>        return view(&#39;book/index&#39;, compact(&#39;books&#39;));
-<span class="ln"> 9</span>    }
-<span class="ln">10</span>---
+<span class="ln"> 8</span>        return view(&#39;book/index&#39;, compact
+<span class="ln"> 9</span>        (&#39;books&#39;));
+<span class="ln">10</span>    }
+<span class="ln">11</span>---
 </code></pre></div><h3 id="log-ファイル-出力">Log ファイル 出力</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>$ tail -f  src-lsapp/storage/logs/laravel.log
 </code></pre></div><ul>
@@ -540,6 +540,8 @@ $ artisan make:mail SampleNotification</p>
     <h2 class="mt-4">Recent Posts</h2>
     <nav class="nav flex-column">
         
+        <a href="https://tkondoh1022.github.io/post/family-tree/" class="nav-link">Family Tree</a>
+        
         <a href="https://tkondoh1022.github.io/post/laravel-tutorial/" class="nav-link">Laravel Tutorial</a>
         
         <a href="https://tkondoh1022.github.io/post/laravel-setup/" class="nav-link">Laravel Setup</a>
@@ -562,6 +564,11 @@ $ artisan make:mail SampleNotification</p>
         <span class="badge badge-pill badge-secondary">6</span>
         </a>
         
+        <a href='https://tkondoh1022.github.io/categories/my/' class="nav-link">
+        my
+        <span class="badge badge-pill badge-secondary">1</span>
+        </a>
+        
     </nav>
     
     <h2 class="mt-4 text-capitalize">tags</h2>
@@ -579,6 +586,11 @@ $ artisan make:mail SampleNotification</p>
         
         <a href='https://tkondoh1022.github.io/tags/hugo/' class="nav-link">
         hugo
+        <span class="badge badge-pill badge-secondary">1</span>
+        </a>
+        
+        <a href='https://tkondoh1022.github.io/tags/my/' class="nav-link">
+        my
         <span class="badge badge-pill badge-secondary">1</span>
         </a>
         

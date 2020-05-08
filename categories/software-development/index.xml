@@ -26,7 +26,7 @@
       <pubDate>Thu, 09 Apr 2020 22:40:09 +0900</pubDate>
       
       <guid>https://tkondoh1022.github.io/post/laravel-setup/</guid>
-      <description>Laravel  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup GitHub  Create repogitory on GitHub: laravel  Setup WorkDir 1$ mkdir -p work-github/laravel 2$ cd work-github/laravel 3$ echo &amp;#34;# laravel&amp;#34; &amp;gt;&amp;gt; README.md 4$ git init 5$ git add README.md 6$ git commit -m &amp;#34;first commit&amp;#34; 7$ git remote add origin https://github.com/tkondoh1022/laravel.git 8$ git push -u origin master Setup files 1$ tree . 2. 3├── LICENSE 4├── Makefile 5├── README.</description>
+      <description>Laravel-v6 setup on docker  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup files 1$ cd work-github 2$ git clone git@github.com:tkondoh1022/laravel-v6.git 3 4$ cd laravel-v6 5$ tree . 6. 7├── LICENSE 8├── Makefile 9├── README.md 10├── docker 11│ ├── ash 12│ │ ├── aliases.sh 13│ │ └── color_prompt.sh 14│ ├── mysql 15│ │ └── my.cnf 16│ ├── nginx 17│ │ └── default.conf 18│ └── php 19│ ├── Dockerfile 20│ ├── php.</description>
     </item>
     
     <item>
