@@ -6,10 +6,37 @@
     <description>Recent content in Software Development on tkondoh</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, Takeo Kondoh; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 19 Apr 2020 12:19:25 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2020 21:53:34 +0900</lastBuildDate>
     
 	<atom:link href="https://tkondoh1022.github.io/categories/software-development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Windows Env</title>
+      <link>https://tkondoh1022.github.io/post/windows-env/</link>
+      <pubDate>Thu, 25 Jun 2020 21:53:34 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/post/windows-env/</guid>
+      <description>Windows Aetup Python encv with anaconda </description>
+    </item>
+    
+    <item>
+      <title>Laravel Docker</title>
+      <link>https://tkondoh1022.github.io/post/laravel-docker/</link>
+      <pubDate>Sun, 14 Jun 2020 05:34:12 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/post/laravel-docker/</guid>
+      <description>Laravel docker directory straucture 1. 2├── backend # Laravel プロジェクトのルートディレクトリ 3└── infrastructure 4 ├── Makefile 5 ├── docker 6 │ ├── mysql 7 │ │ ├── Dockerfile 8 │ │ └── my.cnf 9 │ ├── nginx 10 │ │ ├── Dockerfile 11 │ │ ├── Dockerfile.production =&amp;gt; sample 12 │ │ └── default.conf 13 │ └── php 14 │ ├── Dockerfile 15 │ ├── Dockerfile.production =&amp;gt; sample 16 │ ├── bash 17 │ │ ├── .</description>
+    </item>
+    
+    <item>
+      <title>Python Docker</title>
+      <link>https://tkondoh1022.github.io/post/python-docker/</link>
+      <pubDate>Sat, 16 May 2020 21:12:38 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/post/python-docker/</guid>
+      <description>Setup python on docker 1$ cd ~/work-github/python-env 2$ cat docker-compose.yml 3--- 4version: &amp;#34;3&amp;#34; 5services: 6 app: 7 container_name: &amp;#34;python_env&amp;#34; 8 build: 9 context: . 10 dockerfile: ./Dockerfile 11 image: python_dev:scraping 12 ports: 13 - 5000:5000 14 volumes: 15 - $PWD/work:/opt/work 16 tty: true 17--- 18 19$ cat Dockerfile 20--- 21# python の 3.8.0 をベースにする 22FROM python:3.8.0 23 24RUN apt-get update \ 25 &amp;amp;&amp;amp; apt-get upgrade -y \ 26 # image のサイズを小さくするためにキャッシュ削除 27 &amp;amp;&amp;amp; apt-get clean \ 28 &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* \ 29 # pip のアップデート 30 &amp;amp;&amp;amp; pip install --upgrade pip 31 32# python のパッケージをインストール 33COPY requirements.</description>
+    </item>
     
     <item>
       <title>Laravel Tutorial</title>
@@ -17,7 +44,9 @@
       <pubDate>Sun, 19 Apr 2020 12:19:25 +0900</pubDate>
       
       <guid>https://tkondoh1022.github.io/post/laravel-tutorial/</guid>
-      <description>Laravel Tutorial  https://qiita.com/sano1202/items/6021856b70e4f8d3dc3d s- http://localhost:10080/  Create New Project: feature/lsapp  ref: https://github.com/bradtraversy/lsapp  1$ artisan --version 2Laravel Framework 7.8.1 3 4$ diff .env-example .env-lsapp 51,2c1,2 6&amp;lt; #COMPOSE_PROJECT_NAME=myproject 7&amp;lt; PROJECT_PATH=./src 8--- 9&amp;gt; COMPOSE_PROJECT_NAME=lsapp 10&amp;gt; PROJECT_PATH=./src-lsapp 114a5 12&amp;gt; APP_NAME=LSAPP 13 14$ make create-project 15docker-compose up -d --build 16docker-compose exec app composer create-project --prefer-dist laravel/laravel . 17docker-compose exec app composer require predis/predis 18sudo chown -R tkondoh:tkondoh ./src-lsapp 19 20$ make ps 21docker-compose ps 22 Name Command State Ports 23------------------------------------------------------------------------------------------------ 24lsapp_app_1 docker-php-entrypoint php-fpm Up 0.</description>
+      <description>Laravel-v6 Tutorial  https://github.com/bradtraversy/lsapp https://qiita.com/sano1202/items/6021856b70e4f8d3dc3d http://localhost:10080/  Setup sample project:lsapp 1$ cd work-github 2$ git clone git@github.com:tkondoh1022/laravel-env.git laravel-v6 3$ cd laravel-v6 4$ mkdir logs tmp -m 777 5$ docker-compose up -d --build 6$ composer create-project --prefer-dist laravel/laravel=6.* . 7$ composer require predis/predis 8$ sudo chown -R tkondoh:tkondoh ./src-lsapp ./tmp 9$ artisan --version 10Laravel Framework 6.18.13 CRUD: feature/simple https://qiita.com/sayama0402/items/668f7148759910f65da9
+E-COMMERCE: feature/ec https://github.com/drehimself/laravel-ecommerce-example
+1Clone the repo and cd into it 2$ git clone https://github.</description>
     </item>
     
     <item>
@@ -26,7 +55,7 @@
       <pubDate>Thu, 09 Apr 2020 22:40:09 +0900</pubDate>
       
       <guid>https://tkondoh1022.github.io/post/laravel-setup/</guid>
-      <description>Laravel-v6 setup on docker  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup files 1$ cd work-github 2$ git clone git@github.com:tkondoh1022/laravel-v6.git 3 4$ cd laravel-v6 5$ tree . 6. 7├── LICENSE 8├── Makefile 9├── README.md 10├── docker 11│ ├── ash 12│ │ ├── aliases.sh 13│ │ └── color_prompt.sh 14│ ├── mysql 15│ │ └── my.cnf 16│ ├── nginx 17│ │ └── default.conf 18│ └── php 19│ ├── Dockerfile 20│ ├── php.</description>
+      <description>Laravel-v6 setup on docker  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup files 1$ cd work-github 2$ git clone git@github.com:tkondoh1022/laravel-env.git 3 4$ cd laravel-env 5$ tree . 6. 7├── LICENSE 8├── Makefile 9├── README.md 10├── docker 11│ ├── ash 12│ │ ├── aliases.sh 13│ │ └── color_prompt.sh 14│ ├── mysql 15│ │ └── my.cnf 16│ ├── nginx 17│ │ └── default.conf 18│ └── php 19│ ├── Dockerfile 20│ ├── php.</description>
     </item>
     
     <item>

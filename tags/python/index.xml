@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on tkondoh</title>
+    <link>https://tkondoh1022.github.io/tags/python/</link>
+    <description>Recent content in python on tkondoh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2019, Takeo Kondoh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 16 May 2020 21:12:38 +0900</lastBuildDate>
+    
+	<atom:link href="https://tkondoh1022.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Docker</title>
+      <link>https://tkondoh1022.github.io/post/python-docker/</link>
+      <pubDate>Sat, 16 May 2020 21:12:38 +0900</pubDate>
+      
+      <guid>https://tkondoh1022.github.io/post/python-docker/</guid>
+      <description>Setup python on docker 1$ cd ~/work-github/python-env 2$ cat docker-compose.yml 3--- 4version: &amp;#34;3&amp;#34; 5services: 6 app: 7 container_name: &amp;#34;python_env&amp;#34; 8 build: 9 context: . 10 dockerfile: ./Dockerfile 11 image: python_dev:scraping 12 ports: 13 - 5000:5000 14 volumes: 15 - $PWD/work:/opt/work 16 tty: true 17--- 18 19$ cat Dockerfile 20--- 21# python の 3.8.0 をベースにする 22FROM python:3.8.0 23 24RUN apt-get update \ 25 &amp;amp;&amp;amp; apt-get upgrade -y \ 26 # image のサイズを小さくするためにキャッシュ削除 27 &amp;amp;&amp;amp; apt-get clean \ 28 &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* \ 29 # pip のアップデート 30 &amp;amp;&amp;amp; pip install --upgrade pip 31 32# python のパッケージをインストール 33COPY requirements.</description>
+    </item>
+    
+  </channel>
+</rss>

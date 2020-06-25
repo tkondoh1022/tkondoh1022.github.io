@@ -8,7 +8,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://tkondoh1022.github.io/categories/software-development/" />
-<meta property="og:updated_time" content="2020-04-19T12:19:25+09:00" />
+<meta property="og:updated_time" content="2020-06-25T21:53:34+09:00" />
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software Development"/>
@@ -86,7 +86,7 @@
                 
                   
                   
-                    A 6-post collection
+                    A 9-post collection
                   
                 
               
@@ -106,6 +106,57 @@
       
       
       <article class="post">
+        <a class="title" href="https://tkondoh1022.github.io/post/windows-env/"><h2>Windows Env</h2></a>
+        <div class="mb-3">
+    <small>
+        <strong>By Takeo Kondoh</strong>
+        | <i class="far fa-calendar-alt"></i>&nbsp;Jun 25, 2020&nbsp;
+        | <i class="fa fa-tags" title="Tags" aria-hidden="true"></i> <a href='https://tkondoh1022.github.io/tags/windows/'>windows</a>
+    </small>
+</div>
+        <div>
+            Windows Aetup Python encv with anaconda 
+        </div>
+        <div>
+            <a href="https://tkondoh1022.github.io/post/windows-env/" class="btn btn-outline-secondary" role="button">Continue Reading...</a>
+        </div>
+      </article>
+    
+      <article class="post">
+        <a class="title" href="https://tkondoh1022.github.io/post/laravel-docker/"><h2>Laravel Docker</h2></a>
+        <div class="mb-3">
+    <small>
+        <strong>By Takeo Kondoh</strong>
+        | <i class="far fa-calendar-alt"></i>&nbsp;Jun 14, 2020&nbsp;
+        | <i class="fa fa-tags" title="Tags" aria-hidden="true"></i> <a href='https://tkondoh1022.github.io/tags/laravel/'>laravel</a>
+    </small>
+</div>
+        <div>
+            Laravel docker directory straucture 1. 2├── backend # Laravel プロジェクトのルートディレクトリ 3└── infrastructure 4 ├── Makefile 5 ├── docker 6 │ ├── mysql 7 │ │ ├── Dockerfile 8 │ │ └── my.cnf 9 │ ├── nginx 10 │ │ ├── Dockerfile 11 │ │ ├── Dockerfile.production =&gt; sample 12 │ │ └── default.conf 13 │ └── php 14 │ ├── Dockerfile 15 │ ├── Dockerfile.production =&gt; sample 16 │ ├── bash 17 │ │ ├── .
+        </div>
+        <div>
+            <a href="https://tkondoh1022.github.io/post/laravel-docker/" class="btn btn-outline-secondary" role="button">Continue Reading...</a>
+        </div>
+      </article>
+    
+      <article class="post">
+        <a class="title" href="https://tkondoh1022.github.io/post/python-docker/"><h2>Python Docker</h2></a>
+        <div class="mb-3">
+    <small>
+        <strong>By Takeo Kondoh</strong>
+        | <i class="far fa-calendar-alt"></i>&nbsp;May 16, 2020&nbsp;
+        | <i class="fa fa-tags" title="Tags" aria-hidden="true"></i> <a href='https://tkondoh1022.github.io/tags/python/'>python</a>
+    </small>
+</div>
+        <div>
+            Setup python on docker 1$ cd ~/work-github/python-env 2$ cat docker-compose.yml 3--- 4version: &#34;3&#34; 5services: 6 app: 7 container_name: &#34;python_env&#34; 8 build: 9 context: . 10 dockerfile: ./Dockerfile 11 image: python_dev:scraping 12 ports: 13 - 5000:5000 14 volumes: 15 - $PWD/work:/opt/work 16 tty: true 17--- 18 19$ cat Dockerfile 20--- 21# python の 3.8.0 をベースにする 22FROM python:3.8.0 23 24RUN apt-get update \ 25 &amp;&amp; apt-get upgrade -y \ 26 # image のサイズを小さくするためにキャッシュ削除 27 &amp;&amp; apt-get clean \ 28 &amp;&amp; rm -rf /var/lib/apt/lists/* \ 29 # pip のアップデート 30 &amp;&amp; pip install --upgrade pip 31 32# python のパッケージをインストール 33COPY requirements.
+        </div>
+        <div>
+            <a href="https://tkondoh1022.github.io/post/python-docker/" class="btn btn-outline-secondary" role="button">Continue Reading...</a>
+        </div>
+      </article>
+    
+      <article class="post">
         <a class="title" href="https://tkondoh1022.github.io/post/laravel-tutorial/"><h2>Laravel Tutorial</h2></a>
         <div class="mb-3">
     <small>
@@ -115,7 +166,9 @@
     </small>
 </div>
         <div>
-            Laravel Tutorial  https://qiita.com/sano1202/items/6021856b70e4f8d3dc3d s- http://localhost:10080/  Create New Project: feature/lsapp  ref: https://github.com/bradtraversy/lsapp  1$ artisan --version 2Laravel Framework 7.8.1 3 4$ diff .env-example .env-lsapp 51,2c1,2 6&lt; #COMPOSE_PROJECT_NAME=myproject 7&lt; PROJECT_PATH=./src 8--- 9&gt; COMPOSE_PROJECT_NAME=lsapp 10&gt; PROJECT_PATH=./src-lsapp 114a5 12&gt; APP_NAME=LSAPP 13 14$ make create-project 15docker-compose up -d --build 16docker-compose exec app composer create-project --prefer-dist laravel/laravel . 17docker-compose exec app composer require predis/predis 18sudo chown -R tkondoh:tkondoh ./src-lsapp 19 20$ make ps 21docker-compose ps 22 Name Command State Ports 23------------------------------------------------------------------------------------------------ 24lsapp_app_1 docker-php-entrypoint php-fpm Up 0.
+            Laravel-v6 Tutorial  https://github.com/bradtraversy/lsapp https://qiita.com/sano1202/items/6021856b70e4f8d3dc3d http://localhost:10080/  Setup sample project:lsapp 1$ cd work-github 2$ git clone git@github.com:tkondoh1022/laravel-env.git laravel-v6 3$ cd laravel-v6 4$ mkdir logs tmp -m 777 5$ docker-compose up -d --build 6$ composer create-project --prefer-dist laravel/laravel=6.* . 7$ composer require predis/predis 8$ sudo chown -R tkondoh:tkondoh ./src-lsapp ./tmp 9$ artisan --version 10Laravel Framework 6.18.13 CRUD: feature/simple https://qiita.com/sayama0402/items/668f7148759910f65da9
+E-COMMERCE: feature/ec https://github.com/drehimself/laravel-ecommerce-example
+1Clone the repo and cd into it 2$ git clone https://github.
         </div>
         <div>
             <a href="https://tkondoh1022.github.io/post/laravel-tutorial/" class="btn btn-outline-secondary" role="button">Continue Reading...</a>
@@ -132,7 +185,7 @@
     </small>
 </div>
         <div>
-            Laravel-v6 setup on docker  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup files 1$ cd work-github 2$ git clone git@github.com:tkondoh1022/laravel-v6.git 3 4$ cd laravel-v6 5$ tree . 6. 7├── LICENSE 8├── Makefile 9├── README.md 10├── docker 11│ ├── ash 12│ │ ├── aliases.sh 13│ │ └── color_prompt.sh 14│ ├── mysql 15│ │ └── my.cnf 16│ ├── nginx 17│ │ └── default.conf 18│ └── php 19│ ├── Dockerfile 20│ ├── php.
+            Laravel-v6 setup on docker  refs: https://qiita.com/ucan-lab/items/17c806973e69792ada99#docker%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B spec:  nginx mysql phpmyadmin node redis mailhog    Setup files 1$ cd work-github 2$ git clone git@github.com:tkondoh1022/laravel-env.git 3 4$ cd laravel-env 5$ tree . 6. 7├── LICENSE 8├── Makefile 9├── README.md 10├── docker 11│ ├── ash 12│ │ ├── aliases.sh 13│ │ └── color_prompt.sh 14│ ├── mysql 15│ │ └── my.cnf 16│ ├── nginx 17│ │ └── default.conf 18│ └── php 19│ ├── Dockerfile 20│ ├── php.
         </div>
         <div>
             <a href="https://tkondoh1022.github.io/post/laravel-setup/" class="btn btn-outline-secondary" role="button">Continue Reading...</a>
@@ -231,6 +284,12 @@ Create database using phpmyadmin.
     <h2 class="mt-4">Recent Posts</h2>
     <nav class="nav flex-column">
         
+        <a href="https://tkondoh1022.github.io/post/windows-env/" class="nav-link">Windows Env</a>
+        
+        <a href="https://tkondoh1022.github.io/post/laravel-docker/" class="nav-link">Laravel Docker</a>
+        
+        <a href="https://tkondoh1022.github.io/post/python-docker/" class="nav-link">Python Docker</a>
+        
         <a href="https://tkondoh1022.github.io/post/family-tree/" class="nav-link">Family Tree</a>
         
         <a href="https://tkondoh1022.github.io/post/laravel-tutorial/" class="nav-link">Laravel Tutorial</a>
@@ -241,10 +300,6 @@ Create database using phpmyadmin.
         
         <a href="https://tkondoh1022.github.io/post/cakephp-setup/" class="nav-link">Cakephp Setup</a>
         
-        <a href="https://tkondoh1022.github.io/post/wordpress-setup/" class="nav-link">Wordpress Setup</a>
-        
-        <a href="https://tkondoh1022.github.io/post/blog-setup/" class="nav-link">Setup blog</a>
-        
     </nav>
     
     <h2 class="mt-4 text-capitalize">categories</h2>
@@ -252,7 +307,7 @@ Create database using phpmyadmin.
         
         <a href='https://tkondoh1022.github.io/categories/software-development/' class="nav-link">
         software-development
-        <span class="badge badge-pill badge-secondary">6</span>
+        <span class="badge badge-pill badge-secondary">9</span>
         </a>
         
         <a href='https://tkondoh1022.github.io/categories/my/' class="nav-link">
@@ -265,13 +320,13 @@ Create database using phpmyadmin.
     <h2 class="mt-4 text-capitalize">tags</h2>
     <nav class="nav flex-column">
         
-        <a href='https://tkondoh1022.github.io/tags/cakephp/' class="nav-link">
-        cakephp
-        <span class="badge badge-pill badge-secondary">2</span>
-        </a>
-        
         <a href='https://tkondoh1022.github.io/tags/laravel/' class="nav-link">
         laravel
+        <span class="badge badge-pill badge-secondary">3</span>
+        </a>
+        
+        <a href='https://tkondoh1022.github.io/tags/cakephp/' class="nav-link">
+        cakephp
         <span class="badge badge-pill badge-secondary">2</span>
         </a>
         
@@ -282,6 +337,16 @@ Create database using phpmyadmin.
         
         <a href='https://tkondoh1022.github.io/tags/my/' class="nav-link">
         my
+        <span class="badge badge-pill badge-secondary">1</span>
+        </a>
+        
+        <a href='https://tkondoh1022.github.io/tags/python/' class="nav-link">
+        python
+        <span class="badge badge-pill badge-secondary">1</span>
+        </a>
+        
+        <a href='https://tkondoh1022.github.io/tags/windows/' class="nav-link">
+        windows
         <span class="badge badge-pill badge-secondary">1</span>
         </a>
         
